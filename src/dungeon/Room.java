@@ -3,8 +3,8 @@
  * Final project
  */
 
-package Inventory;
+package dungeon;
 
-public abstract class Item {
-	private String name;
+public class Room {
+	
 }
