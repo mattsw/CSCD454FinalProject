@@ -6,5 +6,7 @@
 package character;
 
 public abstract class Bad extends Character {
-
+	
+	protected double difMultiplier;
+	
 }

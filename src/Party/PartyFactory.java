@@ -5,6 +5,53 @@
 
 package Party;
 
-public abstract class PartyFactory {
+import java.util.*;
 
+public class PartyFactory{
+	
+	public GoodParty makeGoodParty(){
+		int [] choices = chooseMembers();
+		GoodParty party = new GoodParty(choices);
+		return party;
+	}
+	
+	public BadParty makeBadParty(int floorMod){
+		BadParty party = new BadParty(floorMod);
+		return party;
+	}
+	
+	public BossParty makeBossParty(int floorMod, String type){
+		BossParty party = new BossParty(floorMod, type);
+		return party;
+	}
+	
+	public int[] chooseMembers(){
+		
+		int[] choices = new int[3];
+		Scanner getChoice = new Scanner(System.in);
+		int choice = 0;
+		
+		System.out.println("You may choose any three of the following heros:");
+		System.out.println("1. Warrior");
+		System.out.println("2. Wizzard");
+		System.out.println("3. Thief");
+		System.out.println("4. Shamman");
+		System.out.println("5. Paladin");
+		
+		int i = 0;
+		while(choice < 1 && choice > 4 && i < choices.length){
+			System.out.print("Choose the number of your first hero(example 2 = Wizzard): ");
+			choice = getChoice.nextInt();
+			System.out.println();
+			if(choice < 1 && choice > 4){
+				System.out.println("Invalid choice. Try again!");
+			}
+			else{
+				choices[i] = choice;
+				i++;
+				choice = 0;
+			}
+		}
+		return choices;
+	}
 }

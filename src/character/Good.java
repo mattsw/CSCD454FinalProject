@@ -5,17 +5,50 @@
 
 package character;
 
+import Inventory.Equipables.Armors.*;
+
 public abstract class Good extends Character {
-	protected int mana;
+	protected int level;
+	protected double armorMultiplier;
+	protected Helmet helmet = null;//Will set to most basic armor type when functionality is available
+	protected ChestPiece chestPiece = null;//Will set to most basic armor type when functionality is available
+	protected Gloves gloves = null;//Will set to most basic armor type when functionality is available
+	protected Legs legs = null;//Will set to most basic armor type when functionality is available
+	protected Boots boots = null;//Will set to most basic armor type when functionality is available
 	
-	public int getMana() {
-		return this.mana;
+	public void setHelmet(Helmet helmet){
+		this.helmet = helmet;
+		updateArmorVal();
 	}
-	public void setMana(int mana) {
-		if(mana >= 0) {
-			this.mana = mana;
-		} else {
-			this.mana = 0;
-		}
+	
+	public void setChestPiece(ChestPiece chestPiece){
+		this.chestPiece = chestPiece;
+		updateArmorVal();
 	}
+	
+	public void setGloves(Gloves gloves){
+		this.gloves = gloves;
+		updateArmorVal();
+	}
+	
+	public void setLegs(Legs legs){
+		this.legs = legs;
+		updateArmorVal();
+	}
+	
+	public void setBoots(Boots boots){
+		this.boots = boots;
+		updateArmorVal();
+	}
+	
+	public int getLevel(){
+		return this.level;
+	}
+	
+	public void updateArmorVal(){
+		armorVal = (this.helmet.getArmorValue()+this.chestPiece.getArmorValue()+this.gloves.getArmorValue()
+				   +this.legs.getArmorValue()+this.boots.getArmorValue())*(this.armorMultiplier);
+	}
+	
+	public abstract void levelUp();
 }

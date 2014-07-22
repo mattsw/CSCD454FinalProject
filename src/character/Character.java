@@ -6,18 +6,22 @@
 package character;
 
 public abstract class Character {
-	protected int health;
-	protected int attackPwr;
-	protected int armorVal;
+	protected double health;
+	protected double attackPwr;
+	protected double armorVal;
+	protected double speed;
 	
 	
-	public int getHealth() {
+	public double getHealth() {
 		return this.health;
 	}
-	public int getAttackPwr() {
+	public double getSpeed() {
+		return this.speed;
+	}
+	public double getAttackPwr() {
 		return this.attackPwr;
 	}
-	public int getArmorVal() {
+	public double getArmorVal() {
 		return this.armorVal;
 	}
 	public void setHealth(int health) {
@@ -39,6 +43,13 @@ public abstract class Character {
 			this.armorVal = armorVal;
 		} else {
 			this.armorVal = 0;
+		}
+	}
+	public void setSpeed(int speed) {
+		if(health >= 0) {
+			this.speed = speed;
+		} else {
+			this.speed = 0;
 		}
 	}
 }
