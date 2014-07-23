@@ -52,7 +52,15 @@ public abstract class Good extends Character {
 				   +this.legs.getArmorValue()+this.boots.getArmorValue())*(this.armorMultiplier);
 	}
 	
-	public abstract void addEXP(int EXP);
+	public void addEXP(int EXP){
+		if(this.isAlive()){
+			this.xp = this.xp + EXP;
+			if(this.xp >= this.nextLevel){
+				this.nextLevel = this.nextLevel*1.5;
+				this.levelUp();
+			}
+		}
+	}
 	
 	public abstract void levelUp();
 }

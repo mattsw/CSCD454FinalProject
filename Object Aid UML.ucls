@@ -78,21 +78,12 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="character.Mob" project="CSCD454FinalProject" 
-    file="/CSCD454FinalProject/src/character/Mob.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="363" y="450"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <package id="11" language="java" name="character" project="CSCD454FinalProject" 
+  <package id="10" language="java" name="character" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character" binary="false" corner="BOTTOM_RIGHT">    
     <position height="50" width="101" x="284" y="46"/>    
     <display autosize="true" stereotype="true" accessors="true"/>  
   </package>  
-  <class id="12" language="java" name="character.Shaman" project="CSCD454FinalProject" 
+  <class id="11" language="java" name="character.Shaman" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Shaman.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="998" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -101,7 +92,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="character.Dragon" project="CSCD454FinalProject" 
+  <class id="12" language="java" name="character.Dragon" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Dragon.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="862" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -110,7 +101,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="character.Bad" project="CSCD454FinalProject" 
+  <class id="13" language="java" name="character.Bad" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Bad.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="490" y="329"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -119,7 +110,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="character.Zombie" project="CSCD454FinalProject" 
+  <class id="14" language="java" name="character.Zombie" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Zombie.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="481" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -128,16 +119,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="character.Good" project="CSCD454FinalProject" 
+  <class id="15" language="java" name="character.Good" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Good.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="836" y="329"/>    
+    <position height="-1" width="-1" x="995" y="315"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="character.Wizzard" project="CSCD454FinalProject" 
+  <class id="16" language="java" name="character.Wizzard" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Wizzard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="1125" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -146,7 +137,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="main.DungeonsAndDragons" project="CSCD454FinalProject" 
+  <class id="17" language="java" name="main.DungeonsAndDragons" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/main/DungeonsAndDragons.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="151" x="448" y="46"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -155,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="character.Goblin" project="CSCD454FinalProject" 
+  <class id="18" language="java" name="character.Goblin" project="CSCD454FinalProject" 
     file="/CSCD454FinalProject/src/character/Goblin.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="81" width="87" x="608" y="571"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -164,78 +155,33 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="character.Boss" project="CSCD454FinalProject" 
-    file="/CSCD454FinalProject/src/character/Boss.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="87" x="490" y="450"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
   <generalization id="21">    
     <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="16"/>  
+    <end type="TARGET" refId="15"/>  
   </generalization>  
   <generalization id="22">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
   </generalization>  
   <generalization id="23">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="16"/>  
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <generalization id="24">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="20"/>  
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="7"/>  
   </generalization>  
   <generalization id="25">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="26">    
     <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <generalization id="36">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="7"/>  
+    <end type="TARGET" refId="15"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    

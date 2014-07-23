@@ -19,16 +19,6 @@ public class Paladin extends Good {
 		//updateArmorVal();   <--for use when armor functionality is implemented
 	}
 	
-	public void addEXP(int EXP){
-		if(this.isAlive()){
-			this.xp = this.xp + EXP;
-			if(this.xp >= this.nextLevel){
-				this.nextLevel = this.nextLevel*1.5;
-				this.levelUp();
-			}
-		}
-	}
-	
 	public void levelUp(){
 		this.health = this.health + 8;
 		this.attackPwr = this.attackPwr +1;
