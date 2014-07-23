@@ -9,6 +9,7 @@ public class Shaman extends Good {
 	
 	public Shaman(){
 		this.health = 30;
+		this.curHealth = this.health;
 		this.attackPwr = 12;
 		this.speed = 6;
 		this.level = 1;

@@ -9,6 +9,7 @@ public class Paladin extends Good {
 	
 	public Paladin(){
 		this.health = 50;
+		this.curHealth = this.health;
 		this.attackPwr = 10;
 		this.speed = 5;
 		this.level = 1;

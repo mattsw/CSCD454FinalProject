@@ -8,6 +8,7 @@ package character;
 public class Warrior extends Good {
 	public Warrior(){
 		this.health = 60;
+		this.curHealth = this.health;
 		this.attackPwr = 15;
 		this.speed = 6;
 		this.level = 1;

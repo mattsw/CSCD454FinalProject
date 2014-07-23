@@ -9,6 +9,7 @@ public class Wizzard extends Good {
 	
 	public Wizzard(){
 		this.health = 20;
+		this.curHealth = this.health;
 		this.attackPwr = 15;
 		this.speed = 5;
 		this.level = 1;

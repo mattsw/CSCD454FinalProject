@@ -25,6 +25,21 @@ public class GoodParty extends Party{
 		this.nextLevel = 500;
 		this.partyEXP = 0;
 		this.size = 3;
+		addMembers(choices);
+		
+	}
+	
+	public void addEXP(int EXP){
+		this.partyEXP +=EXP;
+		if(this.partyEXP >= this.nextLevel){
+			for(Good character: this.members){
+				character.levelUp();
+			}
+			this.nextLevel = (this.nextLevel * 2);
+		}
+	}
+	
+	private void addMembers(int [] choices){
 		
 		for(int i = 0; i < choices.length; i++){
 			if(choices[i] == 1){
@@ -42,16 +57,6 @@ public class GoodParty extends Party{
 			else{
 				this.members.add(new Paladin());
 			}
-		}
-	}
-	
-	public void addEXP(int EXP){
-		this.partyEXP +=EXP;
-		if(this.partyEXP >= this.nextLevel){
-			for(Good character: this.members){
-				character.levelUp();
-			}
-			this.nextLevel = (this.nextLevel * 2);
 		}
 	}
 }

@@ -9,6 +9,7 @@ public class Thief extends Good {
 	
 	public Thief(){
 		this.health = 35;
+		this.curHealth = this.health;
 		this.attackPwr = 7;
 		this.speed = 10;
 		this.level = 1;
