@@ -5,11 +5,11 @@
 
 package combat;
 
-import Party.Party;
+import Party.*;
 
 public class Combat {
 
-	protected Party goodGuys;
-	protected Party badGuys;
+	protected GoodParty goodGuys;
+	protected BadParty badGuys;
 	
 }

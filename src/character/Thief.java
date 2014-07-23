@@ -14,7 +14,21 @@ public class Thief extends Good {
 		this.speed = 10;
 		this.level = 1;
 		this.armorMultiplier = 0.5;
+		this.nextLevel = 500;
+		this.xp = 0;
 		//updateArmorVal();   <--for use when armor functionality is implemented
+	}
+	
+	public void addEXP(int EXP){
+		
+		if(this.isAlive()){
+			this.xp = this.xp + EXP;
+			
+			if(this.xp >= this.nextLevel){
+				this.nextLevel = this.nextLevel*1.5;
+				this.levelUp();
+			}
+		}
 	}
 	
 	public void levelUp(){

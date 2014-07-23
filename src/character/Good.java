@@ -8,8 +8,9 @@ package character;
 import Inventory.Equipables.Armors.*;
 
 public abstract class Good extends Character {
+	protected double xp;
+	protected double nextLevel;
 	protected int level;
-	protected double curHealth;
 	protected double armorMultiplier;
 	protected Helmet helmet = null;//Will set to most basic armor type when functionality is available
 	protected ChestPiece chestPiece = null;//Will set to most basic armor type when functionality is available
@@ -50,6 +51,8 @@ public abstract class Good extends Character {
 		armorVal = (this.helmet.getArmorValue()+this.chestPiece.getArmorValue()+this.gloves.getArmorValue()
 				   +this.legs.getArmorValue()+this.boots.getArmorValue())*(this.armorMultiplier);
 	}
+	
+	public abstract void addEXP(int EXP);
 	
 	public abstract void levelUp();
 }

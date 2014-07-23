@@ -12,8 +12,6 @@ import Inventory.Equipables.Armors.ArmorPiece;
 import character.*;
 
 public class GoodParty extends Party{
-	protected int nextLevel;
-	protected int partyEXP;
 	protected ArrayList<Good> members;
 	protected ArrayList<Consumable> consumables;
 	protected ArrayList<ArmorPiece> equipables;
@@ -22,20 +20,13 @@ public class GoodParty extends Party{
 		this.members = new ArrayList<Good>();
 		this.consumables = new ArrayList<Consumable>();
 		this.equipables = new ArrayList<ArmorPiece>();
-		this.nextLevel = 500;
-		this.partyEXP = 0;
 		this.size = 3;
 		addMembers(choices);
-		
 	}
 	
 	public void addEXP(int EXP){
-		this.partyEXP +=EXP;
-		if(this.partyEXP >= this.nextLevel){
-			for(Good character: this.members){
-				character.levelUp();
-			}
-			this.nextLevel = (this.nextLevel * 2);
+		for(Good character: this.members){
+			character.addEXP(EXP);
 		}
 	}
 	

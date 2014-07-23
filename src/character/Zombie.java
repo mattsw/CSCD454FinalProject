@@ -10,6 +10,7 @@ public class Zombie extends Bad {
 	public Zombie(int level){
 		this.difMultiplier = (0.6 * level);
 		this.health = (60 * this.difMultiplier);
+		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
 		this.speed = (3 * this.difMultiplier);
 		this.armorVal = (3 * this.difMultiplier);

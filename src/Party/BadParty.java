@@ -12,11 +12,17 @@ import character.*;
 public class BadParty extends Party{
 
 	protected ArrayList<Bad> members;
+	protected int floorMod;
 	
 	public BadParty(int floorMod){
+		this.members = new ArrayList<Bad>();
+		this.floorMod = floorMod;
+		addMonsters();
+	}
+	
+	public void addMonsters(){
 		Random rand = new Random();
 		this.size = rand.nextInt(5) + 1; //Random group size between 1 and 5
-		
 		for(int i = 0; i < this.size; i++){ //Add five random bad guys to party
 			
 			int pickMonster = rand.nextInt(5) + 1;

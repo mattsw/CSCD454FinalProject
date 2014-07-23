@@ -7,6 +7,7 @@ package character;
 
 public abstract class Character {
 	protected double health;
+	protected double curHealth;
 	protected double attackPwr;
 	protected double armorVal;
 	protected double speed;
@@ -23,6 +24,16 @@ public abstract class Character {
 	}
 	public double getArmorVal() {
 		return this.armorVal;
+	}
+	public double getCurHealth() {
+		return this.curHealth;
+	}
+	public void setCurHealth(int health) {
+		if(health >= 0) {
+			this.curHealth = health;
+		} else {
+			this.curHealth = 0;
+		}
 	}
 	public void setHealth(int health) {
 		if(health >= 0) {
@@ -51,5 +62,11 @@ public abstract class Character {
 		} else {
 			this.speed = 0;
 		}
+	}
+	public boolean isAlive(){
+		if(this.curHealth <= 0){
+			return false;
+		}
+		return true;
 	}
 }
