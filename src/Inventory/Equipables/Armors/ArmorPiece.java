@@ -1,10 +1,10 @@
 package Inventory.Equipables.Armors;
 
+import Inventory.Item;
 import Inventory.Equipables.IEquipable;
 import Inventory.Equipables.Sets.Set;
 
-public abstract class ArmorPiece implements IEquipable {
-	protected String name;
+public abstract class ArmorPiece extends Item implements IEquipable {
 	protected double armorRating;
 	protected Set set;
 	
