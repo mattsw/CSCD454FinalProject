@@ -7,8 +7,8 @@ package character;
 
 public class Dragon extends Bad {
 	
-	public Dragon(int level){
-		this.difMultiplier = level;
+	public Dragon(int floorMod){
+		this.difMultiplier = floorMod;
 		this.health = (150 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (30 * this.difMultiplier);

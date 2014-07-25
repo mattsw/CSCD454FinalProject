@@ -39,11 +39,18 @@ public class PartyFactory{
 		System.out.println("5. Paladin");
 		
 		int i = 0;
-		while(choice < 1 && choice > 4 && i < choices.length){
-			System.out.print("Choose the number of your first hero(example 2 = Wizzard): ");
-			choice = getChoice.nextInt();
-			System.out.println();
-			if(choice < 1 && choice > 4){
+		while(i < choices.length){
+			System.out.print("Choose the number of your hero(example 2 = Wizzard): ");
+			try{
+				choice = getChoice.nextInt();
+				System.out.println();
+			}
+			catch(Exception e){//Bad input
+				getChoice.next();//Clear buffer
+				choice = -1000;//Cause invalid message to re-prompt input
+			}
+			
+			if(choice < 1  || choice > 5){
 				System.out.println("Invalid choice. Try again!");
 			}
 			else{

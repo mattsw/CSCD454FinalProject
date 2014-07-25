@@ -6,20 +6,15 @@
 package Party;
 
 import java.util.*;
-
-import Inventory.Consumables.Consumable;
-import Inventory.Equipables.Armors.ArmorPiece;
 import character.*;
 
 public class GoodParty extends Party{
 	protected ArrayList<Good> members;
-	protected ArrayList<Consumable> consumables;
-	protected ArrayList<ArmorPiece> equipables;
+	
+	//Will implement better inventory system soon
 	
 	public GoodParty(int [] choices){
 		this.members = new ArrayList<Good>();
-		this.consumables = new ArrayList<Consumable>();
-		this.equipables = new ArrayList<ArmorPiece>();
 		this.size = 3;
 		addMembers(choices);
 	}

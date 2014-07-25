@@ -7,8 +7,8 @@ package character;
 
 public class Goblin extends Bad {
 
-	public Goblin(int level){
-		this.difMultiplier = (0.9 * level);
+	public Goblin(int floorMod){
+		this.difMultiplier = (0.9 * floorMod);
 		this.health = (15 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);

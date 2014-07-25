@@ -5,52 +5,14 @@
 
 package character;
 
-import Inventory.Equipables.Armors.*;
+import Inventory.Equipables.*;
 
 public abstract class Good extends Character {
 	protected double xp;
 	protected double nextLevel;
 	protected int level;
 	protected double armorMultiplier;
-	protected Helmet helmet = null;//Will set to most basic armor type when functionality is available
-	protected ChestPiece chestPiece = null;//Will set to most basic armor type when functionality is available
-	protected Gloves gloves = null;//Will set to most basic armor type when functionality is available
-	protected Legs legs = null;//Will set to most basic armor type when functionality is available
-	protected Boots boots = null;//Will set to most basic armor type when functionality is available
-	
-	public void setHelmet(Helmet helmet){
-		this.helmet = helmet;
-		updateArmorVal();
-	}
-	
-	public void setChestPiece(ChestPiece chestPiece){
-		this.chestPiece = chestPiece;
-		updateArmorVal();
-	}
-	
-	public void setGloves(Gloves gloves){
-		this.gloves = gloves;
-		updateArmorVal();
-	}
-	
-	public void setLegs(Legs legs){
-		this.legs = legs;
-		updateArmorVal();
-	}
-	
-	public void setBoots(Boots boots){
-		this.boots = boots;
-		updateArmorVal();
-	}
-	
-	public int getLevel(){
-		return this.level;
-	}
-	
-	public void updateArmorVal(){
-		armorVal = (this.helmet.getArmorValue()+this.chestPiece.getArmorValue()+this.gloves.getArmorValue()
-				   +this.legs.getArmorValue()+this.boots.getArmorValue())*(this.armorMultiplier);
-	}
+	protected ArmorSet armor = null; //Will implement with basic starting armor later
 	
 	public void addEXP(int EXP){
 		if(this.isAlive()){
@@ -63,4 +25,8 @@ public abstract class Good extends Character {
 	}
 	
 	public abstract void levelUp();
+	
+	public double getDefenceRating(){
+		return armor.getDefenseRating()*this.armorMultiplier;
+	}
 }

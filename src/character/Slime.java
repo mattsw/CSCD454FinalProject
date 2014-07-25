@@ -7,8 +7,8 @@ package character;
 
 public class Slime extends Bad {
 	
-	public Slime(int level){
-		this.difMultiplier = (0.6 * level);
+	public Slime(int floorMod){
+		this.difMultiplier = (0.6 * floorMod);
 		this.health = (50 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (12 * this.difMultiplier);

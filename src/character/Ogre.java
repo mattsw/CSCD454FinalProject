@@ -7,8 +7,8 @@ package character;
 
 public class Ogre extends Bad {
 	
-	public Ogre(int level){
-		this.difMultiplier = (0.75 * level);
+	public Ogre(int floorMod){
+		this.difMultiplier = (0.75 * floorMod);
 		this.health = (40 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (10 * this.difMultiplier);

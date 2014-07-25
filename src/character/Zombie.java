@@ -7,8 +7,8 @@ package character;
 
 public class Zombie extends Bad {
 	
-	public Zombie(int level){
-		this.difMultiplier = (0.6 * level);
+	public Zombie(int floorMod){
+		this.difMultiplier = (0.6 * floorMod);
 		this.health = (60 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);

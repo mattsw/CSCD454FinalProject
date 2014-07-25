@@ -7,8 +7,8 @@ package character;
 
 public class Troll extends Bad {
 
-	public Troll(int level){
-		this.difMultiplier = (0.8 * level);
+	public Troll(int floorMod){
+		this.difMultiplier = (0.8 * floorMod);
 		this.health = (25 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
