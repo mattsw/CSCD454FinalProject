@@ -5,9 +5,6 @@
 
 package dungeon;
 
-public class Room {
-	
-	public Room() {
-		
-	}
+public class Floor {
+	Room floor[][];
 }

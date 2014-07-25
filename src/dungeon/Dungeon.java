@@ -6,9 +6,9 @@
 package dungeon;
 
 public class Dungeon {
-	Room map[][][];
+	Floor map[];
 	
-	public Dungeon(int x, int y, int z) {
-		this.map = new Room[x][y][z];
+	public Dungeon(int floors) {
+		this.map = new Floor[floors];
 	}
 }
