@@ -5,36 +5,45 @@
 
 package character;
 
+import combat.behaviors.*;
+
 public abstract class Character {
+	protected String name;
 	protected double health;
 	protected double curHealth;
 	protected double attackPwr;
-	protected double armorVal;
 	protected double speed;
-	
+	protected AttackBehavior attack;
+	protected DefenseBehavior defend;
 	
 	public double getHealth() {
 		return this.health;
 	}
+	
 	public double getSpeed() {
 		return this.speed;
 	}
+	
 	public double getAttackPwr() {
 		return this.attackPwr;
 	}
-	public double getArmorVal() {
-		return this.armorVal;
-	}
+	
 	public double getCurHealth() {
 		return this.curHealth;
 	}
-	public void setCurHealth(int health) {
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public void setCurHealth(double health) {
 		if(health >= 0) {
 			this.curHealth = health;
 		} else {
 			this.curHealth = 0;
 		}
 	}
+	
 	public void setHealth(int health) {
 		if(health >= 0) {
 			this.health = health;
@@ -42,6 +51,7 @@ public abstract class Character {
 			this.health = 0;
 		}
 	}
+	
 	public void setAttackPwr(int attackPwr) {
 		if(attackPwr >= 0) {
 			this.attackPwr = attackPwr;
@@ -49,13 +59,7 @@ public abstract class Character {
 			this.attackPwr = 0;
 		}
 	}
-	public void setArmorVal(int armorVal) {
-		if(armorVal >= 0) {
-			this.armorVal = armorVal;
-		} else {
-			this.armorVal = 0;
-		}
-	}
+	
 	public void setSpeed(int speed) {
 		if(health >= 0) {
 			this.speed = speed;
@@ -63,10 +67,30 @@ public abstract class Character {
 			this.speed = 0;
 		}
 	}
+	
 	public boolean isAlive(){
 		if(this.curHealth <= 0){
 			return false;
 		}
 		return true;
 	}
+	
+	public void attack(character.Character target){
+		setAttackBehavior();
+		boolean hasDefended = false;
+		double damage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()))- (target.getDefenceRating());
+		if(damage > 0){
+			hasDefended = target.defend();
+		}
+		if(!hasDefended && damage > 0){
+			target.setCurHealth(target.getCurHealth() - damage);
+			System.out.println("The attack is successful, dealing "+damage+" damage!");
+		}
+	}
+	public abstract void addEXP(int EXP);
+	public abstract boolean defend();
+	public abstract void setAttackBehavior();
+	public abstract double getDefenceRating();
+	public abstract void useItem();
+	public abstract void combatUseItem();
 }

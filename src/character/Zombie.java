@@ -5,14 +5,32 @@
 
 package character;
 
+import java.util.Random;
+
+import combat.behaviors.*;
+
 public class Zombie extends Bad {
 	
 	public Zombie(int floorMod){
+		this.name = "Zombie";
 		this.difMultiplier = (0.6 * floorMod);
 		this.health = (60 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
 		this.speed = (3 * this.difMultiplier);
 		this.armorVal = (3 * this.difMultiplier);
+		this.defend = new Block();
 	}
+	
+	public void setAttackBehavior(){
+		Random rand = new Random();
+		double chance = (rand.nextInt(100) + 1);
+		if(chance <= 70){
+			this.attack = new ZombieBash();
+		}
+		else{
+			this.attack = new ZombieBite();
+		}
+	}
+	
 }

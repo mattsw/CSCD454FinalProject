@@ -5,9 +5,15 @@
 
 package character;
 
+import java.util.Scanner;
+
+import combat.behaviors.ThiefShank;
+import combat.behaviors.ThiefStab;
+
 public class Thief extends Good {
 	
-	public Thief(){
+	public Thief(String name){
+		this.name = name;
 		this.health = 35;
 		this.curHealth = this.health;
 		this.attackPwr = 7;
@@ -16,7 +22,6 @@ public class Thief extends Good {
 		this.armorMultiplier = 0.5;
 		this.nextLevel = 500;
 		this.xp = 0;
-		//updateArmorVal();   <--for use when armor functionality is implemented
 	}
 	
 	public void levelUp(){
@@ -25,4 +30,39 @@ public class Thief extends Good {
 		this.speed = this.speed + 2;
 		this.level = level + 1;
 	}
+	
+	public void setAttackBehavior(){
+		Scanner getChoice = new Scanner(System.in);
+		int choice = 0;
+		
+		System.out.println("What attack would do you want you use?:");
+		System.out.println("1. Weapon");
+		System.out.println("2. Shank");
+		
+		
+		while(choice < 1 || choice > 2){
+			System.out.print("Choose your attack(example 2 = Shank): ");
+			try{
+				choice = getChoice.nextInt();
+				System.out.println();
+			}
+			catch(Exception e){//Bad input
+				getChoice.next();//Clear buffer
+				choice = -1000;//Cause invalid message to re-prompt input
+			}
+			
+			if(choice < 1  || choice > 2){
+				System.out.println("Invalid choice. Try again!");
+			}
+			else{
+				if(choice == 1){
+					this.attack = new ThiefStab();
+				}
+				else{
+					this.attack = new ThiefShank();
+				}
+			}
+		}
+	}
+	
 }

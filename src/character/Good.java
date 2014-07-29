@@ -5,6 +5,10 @@
 
 package character;
 
+import java.util.Scanner;
+
+import combat.behaviors.*;
+
 import Inventory.Equipables.*;
 
 public abstract class Good extends Character {
@@ -29,4 +33,51 @@ public abstract class Good extends Character {
 	public double getDefenceRating(){
 		return armor.getDefenseRating()*this.armorMultiplier;
 	}
+	
+	public void useItem(){
+		//Coming soon
+	}
+	
+	public void combatUseItem(){
+		//Coming soon
+	}
+	
+	public boolean defend(){
+		setDefenseBehavior();
+		return this.defend.defend(this.speed, this.name);
+	}
+	
+	public void setDefenseBehavior(){
+		Scanner getChoice = new Scanner(System.in);
+		int choice = 0;
+		
+		System.out.println("What defense would do you want you use?:");
+		System.out.println("1. Bock");
+		System.out.println("2. Evade");
+		
+		
+		while(choice < 1 || choice > 2){
+			System.out.print("Choose your defense(example 2 = Evade): ");
+			try{
+				choice = getChoice.nextInt();
+				System.out.println();
+			}
+			catch(Exception e){//Bad input
+				getChoice.next();//Clear buffer
+				choice = -1000;//Cause invalid message to re-prompt input
+			}
+			
+			if(choice < 1  || choice > 2){
+				System.out.println("Invalid choice. Try again!");
+			}
+			else{
+				if(choice == 1){
+					this.defend = new Block();
+				}
+				else{
+					this.defend = new Evade();
+				}
+			}
+		}
+	}	
 }

@@ -9,39 +9,54 @@ import java.util.*;
 import character.*;
 
 public class GoodParty extends Party{
-	protected ArrayList<Good> members;
 	
 	//Will implement better inventory system soon
 	
 	public GoodParty(int [] choices){
-		this.members = new ArrayList<Good>();
+		this.members = new ArrayList<character.Character>();
 		this.size = 3;
 		addMembers(choices);
 	}
 	
 	public void addEXP(int EXP){
-		for(Good character: this.members){
+		for(character.Character character: this.members){
 			character.addEXP(EXP);
 		}
 	}
 	
 	private void addMembers(int [] choices){
-		
+		Scanner input = new Scanner(System.in);
+		String name;
 		for(int i = 0; i < choices.length; i++){
 			if(choices[i] == 1){
-				this.members.add(new Warrior());
+				System.out.print("Name your Warrior: ");
+				name = input.nextLine();
+				System.out.println();
+				this.members.add(new Warrior(name));
 			}
 			else if(choices[i] == 2){
-				this.members.add(new Wizzard());
+				System.out.print("Name your Wizzard: ");
+				name = input.nextLine();
+				System.out.println();
+				this.members.add(new Wizzard(name));
 			}
 			else if(choices[i] == 3){
-				this.members.add(new Thief());
+				System.out.print("Name your Thief: ");
+				name = input.nextLine();
+				System.out.println();
+				this.members.add(new Thief(name));
 			}
 			else if(choices[i] == 4){
-				this.members.add(new Shaman());
+				System.out.print("Name your Shaman: ");
+				name = input.nextLine();
+				System.out.println();
+				this.members.add(new Shaman(name));
 			}
 			else{
-				this.members.add(new Paladin());
+				System.out.print("Name your Paladin: ");
+				name = input.nextLine();
+				System.out.println();
+				this.members.add(new Paladin(name));
 			}
 		}
 	}

@@ -11,11 +11,10 @@ import character.*;
 
 public class BadParty extends Party{
 
-	protected ArrayList<Bad> members;
 	protected int floorMod;
 	
 	public BadParty(int floorMod){
-		this.members = new ArrayList<Bad>();
+		this.members = new ArrayList<character.Character>();
 		this.floorMod = floorMod;
 		addMonsters();
 	}

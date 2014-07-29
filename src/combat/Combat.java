@@ -9,7 +9,7 @@ import Party.*;
 
 public class Combat {
 
-	protected GoodParty goodGuys;
-	protected BadParty badGuys;
+	protected Party goodGuys;
+	protected Party badGuys;
 	
 }
