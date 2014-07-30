@@ -3,5 +3,6 @@ package Inventory.Consumables;
 import Inventory.Item;
 
 public abstract class Consumable extends Item {
-	abstract int Consume();
+	public abstract int consume();
+	public abstract String getType();
 }

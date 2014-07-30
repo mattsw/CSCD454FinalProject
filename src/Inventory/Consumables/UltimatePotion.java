@@ -7,8 +7,13 @@ public class UltimatePotion extends Consumable{
 		this.name = "Ultimate Potion";
 	}
 	
-	public int Consume() {
+	public int consume() {
 		return healthRestore;
+	}
+
+	@Override
+	public String getType() {
+		return this.name;
 	}
 
 }
