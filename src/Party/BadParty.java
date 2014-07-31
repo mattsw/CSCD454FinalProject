@@ -43,4 +43,8 @@ public class BadParty extends Party{
 			}
 		}
 	}
+	
+	public void useItem(){
+		//Not currently Implemented
+	}
 }

@@ -8,10 +8,11 @@ package character;
 import java.util.Scanner;
 
 import combat.behaviors.*;
-
 import Inventory.Equipables.*;
+import Party.PartyInventory;
 
 public abstract class Good extends Character {
+	protected PartyInventory inventory = PartyInventory.getInventory();
 	protected double xp;
 	protected double nextLevel;
 	protected int level;
@@ -33,13 +34,9 @@ public abstract class Good extends Character {
 	public double getDefenceRating(){
 		return armor.getDefenseRating()*this.armorMultiplier;
 	}
-	
-	public void useItem(){
-		//Coming soon
-	}
-	
+
 	public void combatUseItem(){
-		//Coming soon
+		inventory.useConsumable(this);
 	}
 	
 	public boolean defend(){

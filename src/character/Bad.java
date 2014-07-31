@@ -19,14 +19,10 @@ public abstract class Bad extends Character {
 	}
 	
 	public void addEXP(int EXP){
-		//Not Implemented
+		//Not currently Implemented
 	}
-	
-	public void useItem(){
-		//Not Implemented
-	}
-	
+
 	public void combatUseItem(){
-		//Not Implemented
+		//Not currently Implemented
 	}
 }

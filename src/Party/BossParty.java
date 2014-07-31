@@ -22,4 +22,8 @@ public class BossParty extends Party{
 			members.add(new Dragon(floorMod));
 		}
 	}
+	
+	public void useItem(){
+		//Not currently Implemented
+	}
 }

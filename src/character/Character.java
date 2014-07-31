@@ -91,6 +91,5 @@ public abstract class Character {
 	public abstract boolean defend();
 	public abstract void setAttackBehavior();
 	public abstract double getDefenceRating();
-	public abstract void useItem();
 	public abstract void combatUseItem();
 }
