@@ -51,16 +51,18 @@ public class PartyInventory {
 	}
 	
 	public void displayEquipables(){
-		int i = 0;
+		int i = 1;
 		for(IEquipable item:equipables){
 			System.out.println(i+". "+item.getItemType());
+			i++;
 		}
 	}
 	
 	public void displayConsumables(){
-		int i = 0;
+		int i = 1;
 		for(Consumable item:consumables){
 			System.out.println(i+". "+item.getType());
+			i++;
 		}
 	}
 	
@@ -78,6 +80,7 @@ public class PartyInventory {
 		}
 		else{
 			equipables.add(item);
+			itemCount++;
 		}
 	}
 	
@@ -87,6 +90,7 @@ public class PartyInventory {
 		}
 		else{
 			consumables.add(item);
+			itemCount++;
 		}
 	}
 }
