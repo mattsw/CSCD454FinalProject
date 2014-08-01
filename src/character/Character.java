@@ -84,7 +84,7 @@ public abstract class Character {
 		}
 		if(!hasDefended && damage > 0){
 			target.setCurHealth(target.getCurHealth() - damage);
-			System.out.println("The attack is successful, dealing "+damage+" damage!");
+			System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
 		}
 	}
 	public abstract void addEXP(int EXP);

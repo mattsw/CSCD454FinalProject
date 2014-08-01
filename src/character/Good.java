@@ -32,7 +32,8 @@ public abstract class Good extends Character {
 	public abstract void levelUp();
 	
 	public double getDefenceRating(){
-		return armor.getDefenseRating()*this.armorMultiplier;
+		//return armor.getDefenseRating()*this.armorMultiplier;
+		return 5;//For testing purposes until armor is equipped
 	}
 
 	public void combatUseItem(){
@@ -48,6 +49,7 @@ public abstract class Good extends Character {
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		
+		System.out.println();
 		System.out.println("What defense would do you want you use?:");
 		System.out.println("1. Bock");
 		System.out.println("2. Evade");

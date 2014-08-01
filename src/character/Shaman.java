@@ -35,6 +35,7 @@ public class Shaman extends Good {
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		
+		System.out.println();
 		System.out.println("What attack would do you want you use?:");
 		System.out.println("1. Weapon");
 		System.out.println("2. Hex");
