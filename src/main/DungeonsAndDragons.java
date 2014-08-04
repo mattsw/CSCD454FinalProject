@@ -44,7 +44,6 @@ public class DungeonsAndDragons {
 				System.out.println("You must enter a number corresponding to a listed difficulty!");
 			}
 		}
-		cin.close();
 		return choice;
 	}
 	
