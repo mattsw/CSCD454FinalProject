@@ -59,7 +59,6 @@ public class PartyFactory{
 				choice = 0;
 			}
 		}
-		getChoice.close();
 		return choices;
 	}
 }

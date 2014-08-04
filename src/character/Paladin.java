@@ -64,6 +64,5 @@ public class Paladin extends Good {
 				}
 			}
 		}
-		getChoice.close();
 	}
 }

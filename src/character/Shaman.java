@@ -64,7 +64,6 @@ public class Shaman extends Good {
 				}
 			}
 		}
-		getChoice.close();
 	}
 	
 }

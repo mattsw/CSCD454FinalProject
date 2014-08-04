@@ -78,6 +78,5 @@ public abstract class Good extends Character {
 				}
 			}
 		}
-		getChoice.close();
 	}	
 }
