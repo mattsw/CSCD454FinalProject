@@ -58,6 +58,7 @@ public class GoodParty extends Party{
 				this.members.add(new Paladin(name));
 			}
 		}
+		input.close();
 	}
 	
 	public void useItem(){
@@ -106,6 +107,7 @@ public class GoodParty extends Party{
 				}
 			}
 		}
+		getChoice.close();
 		return choice;
 	}
 	
@@ -133,6 +135,7 @@ public class GoodParty extends Party{
 				System.out.println("Invalid choice. Try again!");
 			}
 		}
+		getChoice.close();
 		return choice;
 	}
 }

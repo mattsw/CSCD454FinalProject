@@ -66,5 +66,6 @@ public class Wizzard extends Good {
 				}
 			}
 		}
+		getChoice.close();
 	}
 }

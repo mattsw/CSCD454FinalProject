@@ -64,6 +64,7 @@ public class Thief extends Good {
 				}
 			}
 		}
+		getChoice.close();
 	}
 	
 }

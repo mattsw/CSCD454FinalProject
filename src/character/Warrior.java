@@ -66,6 +66,7 @@ public class Warrior extends Good {
 				}
 			}
 		}
+		getChoice.close();
 	}
 
 }
