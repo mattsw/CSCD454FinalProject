@@ -26,4 +26,16 @@ public class BossParty extends Party{
 	public void useItem(){
 		//Not currently Implemented
 	}
+	
+	public void addEXP(int EXP){
+		//Not currently Implemented
+	}
+	
+	public double getEXP(){
+		double exp = 0;
+		for(character.Character creature:this.members){
+			exp = exp + creature.getExperianceWorth();
+		}
+		return exp;
+	}
 }

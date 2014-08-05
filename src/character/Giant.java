@@ -24,6 +24,7 @@ public class Giant extends Bad {
 		this.speed = (12 * this.difMultiplier);
 		this.armorVal = (12 * this.difMultiplier);
 		this.defend = new Block();
+		this.experianceWorth = (200 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

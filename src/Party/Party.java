@@ -17,4 +17,6 @@ public abstract class Party {
 	}
 	
 	public abstract void useItem();
+	public abstract void addEXP(int EXP);
+	public abstract double getEXP();
 }

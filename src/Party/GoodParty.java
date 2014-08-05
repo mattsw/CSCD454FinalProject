@@ -138,4 +138,9 @@ public class GoodParty extends Party{
 		getChoice.close();
 		return choice;
 	}
+	
+	public double getEXP(){
+		//Not currently Implemented
+		return 0;
+	}
 }

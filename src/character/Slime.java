@@ -22,6 +22,7 @@ public class Slime extends Bad {
 		this.speed = (5 * this.difMultiplier);
 		this.armorVal = (6 * this.difMultiplier);
 		this.defend = new Evade();
+		this.experianceWorth = (30 * this.difMultiplier);
 	}
 
 	public void setAttackBehavior(){

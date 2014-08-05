@@ -23,6 +23,7 @@ public class Dragon extends Bad {
 		this.speed = (15 * this.difMultiplier);
 		this.armorVal = (15 * this.difMultiplier);
 		this.defend = new Evade();
+		this.experianceWorth = (200 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

@@ -22,6 +22,7 @@ public class Goblin extends Bad {
 		this.speed = (7 * this.difMultiplier);
 		this.armorVal = (5 * this.difMultiplier);
 		this.defend = new Evade();
+		this.experianceWorth = (20 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){
