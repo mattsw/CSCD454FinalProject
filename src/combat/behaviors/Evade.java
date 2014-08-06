@@ -11,8 +11,8 @@ public class Evade implements DefenseBehavior{
 	
 	public boolean defend(double speed, String name){
 		Random rand = new Random();
-		double chance = (rand.nextInt(150) + 1) + speed;
-		if(chance > 100){
+		double chance = (rand.nextInt(1000) + 1) + speed;
+		if(chance > 900){
 			System.out.println(name+" has evaded the attack!");
 			return true;
 		}

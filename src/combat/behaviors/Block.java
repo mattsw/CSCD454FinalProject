@@ -10,8 +10,8 @@ import java.util.Random;
 public class Block implements DefenseBehavior{
 	public boolean defend(double speed, String name){
 		Random rand = new Random();
-		double chance = (rand.nextInt(100) + 1) + speed/2;
-		if(chance > 80){
+		double chance = (rand.nextInt(1000) + 1) + speed/2;
+		if(chance > 850){
 			System.out.println(name+" has blocked the attack!");
 			return true;
 		}

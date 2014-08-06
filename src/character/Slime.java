@@ -15,14 +15,14 @@ public class Slime extends Bad {
 	
 	public Slime(int floorMod){
 		this.name = "Slime";
-		this.difMultiplier = (0.6 * floorMod);
+		this.difMultiplier = (0.5 * floorMod);
 		this.health = (50 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (12 * this.difMultiplier);
 		this.speed = (5 * this.difMultiplier);
 		this.armorVal = (6 * this.difMultiplier);
 		this.defend = new Evade();
-		this.experianceWorth = (30 * this.difMultiplier);
+		this.experianceWorth = (50 * this.difMultiplier);
 	}
 
 	public void setAttackBehavior(){

@@ -17,14 +17,14 @@ public class Giant extends Bad {
 	
 	public Giant(int floorMod){
 		this.name = "Giant";
-		this.difMultiplier = (floorMod * 1.25);
+		this.difMultiplier = floorMod;
 		this.health = (120 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (25 * this.difMultiplier);
 		this.speed = (12 * this.difMultiplier);
 		this.armorVal = (12 * this.difMultiplier);
 		this.defend = new Block();
-		this.experianceWorth = (200 * this.difMultiplier);
+		this.experianceWorth = (300 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

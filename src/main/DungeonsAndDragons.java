@@ -8,6 +8,8 @@ package main;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Party.Party;
+import Party.PartyFactory;
 import dungeon.Dungeon;
 import dungeon.DungeonBuilderInterface;
 import dungeon.EasyDungeonBuilder;
@@ -20,7 +22,9 @@ public class DungeonsAndDragons {
 	public static void main(String[] args) {
 		int difficulty = obtainDifficulty();
 		Dungeon dungeon = createDungeon(difficulty);
-		GameCore curGame = new GameCore(dungeon);
+		PartyFactory partyFactory = new PartyFactory();
+		Party goodGuys = partyFactory.makeGoodParty();
+		GameCore curGame = new GameCore(dungeon, goodGuys, partyFactory);
 		
 		curGame.play();
 	}

@@ -92,6 +92,15 @@ public abstract class Character {
 			System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
 		}
 	}
+	
+	public void printDescription(){
+		System.out.println("Name : "+this.name);
+		System.out.println("Max Health : "+this.health);
+		System.out.println("Current Health : "+this.curHealth);
+		System.out.println("Attack Power : "+this.attackPwr);
+		System.out.println("Speed : "+this.speed);
+	}
+	
 	public abstract void addEXP(int EXP);
 	public abstract boolean defend();
 	public abstract void setAttackBehavior();
