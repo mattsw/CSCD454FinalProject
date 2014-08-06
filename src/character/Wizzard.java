@@ -16,7 +16,7 @@ public class Wizzard extends Good {
 	
 	public Wizzard(String name){
 		this.name = name;
-		this.health = 20;
+		this.health = 25;
 		this.curHealth = this.health;
 		this.attackPwr = 15;
 		this.speed = 5;
@@ -35,6 +35,7 @@ public class Wizzard extends Good {
 	}
 	
 	public void setAttackBehavior(){
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		

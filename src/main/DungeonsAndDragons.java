@@ -30,6 +30,7 @@ public class DungeonsAndDragons {
 	}
 
 	private static int obtainDifficulty() {
+		@SuppressWarnings("resource")
 		Scanner cin = new Scanner(System.in);
 		boolean cInput = false;
 		int choice = 0;

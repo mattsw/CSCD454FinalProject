@@ -33,6 +33,7 @@ public class Paladin extends Good {
 	}
 	
 	public void setAttackBehavior(){
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		

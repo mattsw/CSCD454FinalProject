@@ -1,5 +1,6 @@
 package Tests;
 
+import character.Wizzard;
 import Inventory.ConsumableFactory;
 import Inventory.EquipmentFactory;
 import Inventory.ItemFactory;
@@ -26,6 +27,32 @@ public class PartyInventoryTest {
 		inventory.addConsumable(potion);
 		inventory.addEquipable(armor);
 		
+		System.out.println("TEST DISPLAY INVENTORY");
+		System.out.println();
+		inventory.displayInventory();
+		
+		character.Character wizzard = new Wizzard("Tom");
+		
+		System.out.println();
+		System.out.println("TEST USE POTION");
+		System.out.println();
+		
+		System.out.println("Wizzard starting health: "+wizzard.getCurHealth());
+		System.out.println();
+		
+		wizzard.setCurHealth(3);
+		
+		System.out.println("Wizzard health after taking some damage: "+wizzard.getCurHealth());
+		System.out.println();
+		
+		wizzard.combatUseItem();//Use a potion
+		
+		System.out.println();
+		System.out.println("Wizzard health after using inventory: "+wizzard.getCurHealth());
+		System.out.println();
+		
+		System.out.println("INVENTORY AFTER USE");
+		System.out.println();
 		inventory.displayInventory();
 
 	}

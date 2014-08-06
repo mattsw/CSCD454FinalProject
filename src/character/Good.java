@@ -46,6 +46,7 @@ public abstract class Good extends Character {
 	}
 	
 	public void setDefenseBehavior(){
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		

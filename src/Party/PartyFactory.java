@@ -28,6 +28,7 @@ public class PartyFactory{
 	public int[] chooseMembers(){
 		
 		int[] choices = new int[3];
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		

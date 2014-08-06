@@ -1,9 +1,10 @@
 package Party;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import Inventory.Consumables.Consumable;
-import Inventory.Equipables.IEquipable;
+import Inventory.Equipables.*;
 
 public class PartyInventory {
 	
@@ -11,6 +12,8 @@ public class PartyInventory {
 	
 	int maxItems;
 	int itemCount;
+	int consumableCount;
+	int equipableCount;
 	ArrayList<Consumable> consumables;
 	ArrayList<IEquipable> equipables;
 	
@@ -24,6 +27,8 @@ public class PartyInventory {
 	private PartyInventory(){
 		this.maxItems = 40;
 		this.itemCount = 0;
+		this.consumableCount = 0;
+		this.equipableCount = 0;
 		this.consumables = new ArrayList<Consumable>();
 		this.equipables = new ArrayList<IEquipable>();
 	}
@@ -46,7 +51,38 @@ public class PartyInventory {
 		else{
 			System.out.println("What would you like the consume?:");
 			displayConsumables();
-			//More coming
+			System.out.println("0. Exit Inventory");
+			@SuppressWarnings("resource")
+			Scanner getChoice = new Scanner(System.in);
+			int choice = -1;
+			
+			while(choice < 0 || choice > this.consumableCount){
+				System.out.println();
+				System.out.print("Please choose the number of the item you would like to use(example: 1 = "+consumables.get(0).getType()+"): ");
+				try{
+					choice = getChoice.nextInt();
+					System.out.println();
+				}
+				catch(Exception e){//Bad input
+					getChoice.next();//Clear buffer
+					choice = -1000;//Cause invalid message to re-prompt input
+				}
+				
+				if(choice < 0  || choice > this.consumableCount){
+					System.out.println("Invalid choice. Try again!");
+				}
+				else{
+					if(choice != 0){
+						choice = choice - 1;//For list index retrieval
+						target.setCurHealth(target.getCurHealth() + consumables.get(choice).consume());
+						if(target.getCurHealth() > target.getHealth()){
+							target.setCurHealth(target.getHealth());
+						}
+						this.consumables.remove(choice);
+						this.itemCount--;
+					}
+				}
+			}
 		}
 	}
 	
@@ -79,8 +115,9 @@ public class PartyInventory {
 			System.out.println("No more inventory space!");
 		}
 		else{
-			equipables.add(item);
-			itemCount++;
+			this.equipables.add(item);
+			this.itemCount++;
+			this.equipableCount++;
 		}
 	}
 	
@@ -89,8 +126,9 @@ public class PartyInventory {
 			System.out.println("No more inventory space!");
 		}
 		else{
-			consumables.add(item);
-			itemCount++;
+			this.consumables.add(item);
+			this.itemCount++;
+			this.consumableCount++;
 		}
 	}
 }
