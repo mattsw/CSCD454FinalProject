@@ -26,8 +26,9 @@ public class Thief extends Good {
 	
 	public void levelUp(){
 		this.health = this.health + 5;
+		this.curHealth = this.health;
 		this.attackPwr = this.attackPwr +1;
-		this.speed = this.speed + 2;
+		this.speed = this.speed + 1.5;
 		this.level = level + 1;
 	}
 	

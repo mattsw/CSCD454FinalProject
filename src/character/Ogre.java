@@ -22,7 +22,7 @@ public class Ogre extends Bad {
 		this.speed = (4 * this.difMultiplier);
 		this.armorVal = (10 * this.difMultiplier);
 		this.defend = new Block();
-		this.experianceWorth = (60 * this.difMultiplier);
+		this.experienceWorth = (60 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

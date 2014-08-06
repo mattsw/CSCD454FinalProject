@@ -22,7 +22,7 @@ public class Troll extends Bad {
 		this.speed = (6 * this.difMultiplier);
 		this.armorVal = (8 * this.difMultiplier);
 		this.defend = new Evade();
-		this.experianceWorth = (40 * this.difMultiplier);
+		this.experienceWorth = (40 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

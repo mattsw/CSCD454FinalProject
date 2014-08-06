@@ -28,8 +28,9 @@ public class Wizzard extends Good {
 	
 	public void levelUp(){
 		this.health = this.health + 5;
+		this.curHealth = this.health;
 		this.attackPwr = this.attackPwr +2;
-		this.speed = this.speed +  0.8;
+		this.speed = this.speed +  1;
 		this.level = level + 1;
 	}
 	

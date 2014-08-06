@@ -13,7 +13,7 @@ public abstract class Character {
 	protected double curHealth;
 	protected double attackPwr;
 	protected double speed;
-	protected double experianceWorth = 0;
+	protected double experienceWorth = 0;
 	protected AttackBehavior attack;
 	protected DefenseBehavior defend;
 	
@@ -37,8 +37,8 @@ public abstract class Character {
 		return this.name;
 	}
 	
-	public double getExperianceWorth() {
-		return this.experianceWorth;
+	public double getExperienceWorth() {
+		return this.experienceWorth;
 	}
 	
 	public void setCurHealth(double health) {

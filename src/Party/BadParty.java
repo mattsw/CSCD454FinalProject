@@ -55,7 +55,7 @@ public class BadParty extends Party{
 	public double getEXP(){
 		double exp = 0;
 		for(character.Character creature:this.members){
-			exp = exp + creature.getExperianceWorth();
+			exp = exp + creature.getExperienceWorth();
 		}
 		return exp;
 	}
