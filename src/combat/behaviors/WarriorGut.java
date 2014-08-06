@@ -11,7 +11,7 @@ public class WarriorGut implements AttackBehavior{
 	public double attack(double atkPower, String atName, String dfName){
 		System.out.println(atName+" attacks "+dfName+", skillfully aiming for critical locations ");
 		Random rand = new Random();
-		if(rand.nextInt(100)+1 < 20){
+		if(rand.nextInt(100) + 1 < 20){
 			System.out.println("The attack misses!");
 			return 0;
 		}

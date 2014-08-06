@@ -11,7 +11,7 @@ public class DragonTail implements AttackBehavior{
 	public double attack(double atkPower, String atName, String dfName){
 		System.out.println(atName+" sweeps his tail powerfully towards "+dfName);
 		Random rand = new Random();
-		if(rand.nextInt(100)+1 < 15){
+		if(rand.nextInt(100) + 1 < 15){
 			System.out.println("The attack misses!");
 			return 0;
 		}

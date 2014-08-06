@@ -11,7 +11,7 @@ public class GiantSmash implements AttackBehavior{
 	public double attack(double atkPower, String atName, String dfName){
 		System.out.println(atName+" attemts massive a two handed smash on "+dfName);
 		Random rand = new Random();
-		if(rand.nextInt(100)+1 < 15){
+		if(rand.nextInt(100) + 1 < 15){
 			System.out.println("The attack misses!");
 			return 0;
 		}

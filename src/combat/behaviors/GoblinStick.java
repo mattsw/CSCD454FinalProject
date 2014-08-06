@@ -11,7 +11,7 @@ public class GoblinStick implements AttackBehavior{
 	public double attack(double atkPower, String atName, String dfName){
 		System.out.println(atName+" shoves a rusty knife at "+dfName);
 		Random rand = new Random();
-		if(rand.nextInt(100)+1 < 10){
+		if(rand.nextInt(100) + 1 < 10){
 			System.out.println("The attack misses!");
 			return 0;
 		}
