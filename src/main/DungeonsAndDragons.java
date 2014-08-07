@@ -10,18 +10,16 @@ import java.util.Scanner;
 
 import Party.Party;
 import Party.PartyFactory;
+import dungeon.DunBuilderDirector;
 import dungeon.Dungeon;
-import dungeon.DungeonBuilderInterface;
-import dungeon.EasyDungeonBuilder;
-import dungeon.HardDungeonBuilder;
-import dungeon.MediumDungeonBuilder;
-import dungeon.NormalDungeonBuilder;
+
 
 public class DungeonsAndDragons {
 
 	public static void main(String[] args) {
 		int difficulty = obtainDifficulty();
-		Dungeon dungeon = createDungeon(difficulty);
+		DunBuilderDirector dunCreator = new DunBuilderDirector();
+		Dungeon dungeon = dunCreator.construct(difficulty);
 		PartyFactory partyFactory = new PartyFactory();
 		Party goodGuys = partyFactory.makeGoodParty();
 		GameCore curGame = new GameCore(dungeon, goodGuys, partyFactory);
@@ -51,23 +49,4 @@ public class DungeonsAndDragons {
 		}
 		return choice;
 	}
-	
-	private static Dungeon createDungeon(int difficulty) {
-		DungeonBuilderInterface dungeonBuilder = null;
-		if(difficulty == 1) {
-			dungeonBuilder = new EasyDungeonBuilder();
-		} else if(difficulty == 2) {
-			dungeonBuilder = new MediumDungeonBuilder();
-		} else if(difficulty == 3) {
-			dungeonBuilder = new NormalDungeonBuilder();
-		} else {
-			dungeonBuilder = new HardDungeonBuilder();
-		} 
-		dungeonBuilder.buildFloors();
-		dungeonBuilder.placeEntrance();
-		dungeonBuilder.placeLastBossPos();
-		dungeonBuilder.verifyDungeon();
-		return dungeonBuilder.getDungeon();
-	}
-
 }
