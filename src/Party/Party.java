@@ -50,6 +50,16 @@ public abstract class Party implements Iterable<character.Character>{
 		}
 	}
 	
+	public boolean surviving(){
+		
+		for(character.Character cur: this.members){
+			if(cur.isAlive()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public abstract void useItem();
 	public abstract void addEXP(int EXP);
 	public abstract double getEXP();
