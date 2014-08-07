@@ -1,9 +1,9 @@
 package Inventory.Equipables.Sets;
 
 public abstract class Set implements ISetBonus{
-	private String setName;
-	private double setBonus;
-	private int baseArmorValue;
+	protected String setName;
+	protected double setBonus;
+	protected int baseArmorValue;
 
 	public double getSetArmorBonus() {		
 		return setBonus;
