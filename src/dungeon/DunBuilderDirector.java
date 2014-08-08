@@ -13,16 +13,9 @@ import dungeon.NormalDungeonBuilder;
 
 public class DunBuilderDirector {
 	public Dungeon construct(int difficulty) {
-		DungeonBuilderInterface dungeonBuilder = null;
-		if(difficulty == 1) {
-			dungeonBuilder = new EasyDungeonBuilder();
-		} else if(difficulty == 2) {
-			dungeonBuilder = new MediumDungeonBuilder();
-		} else if(difficulty == 3) {
-			dungeonBuilder = new NormalDungeonBuilder();
-		} else {
-			dungeonBuilder = new HardDungeonBuilder();
-		}
+		DunBuilderFactory factory = new DunBuilderFactory();
+		DungeonBuilderInterface dungeonBuilder = factory.createBuilder(difficulty);
+		
 		dungeonBuilder.buildFloors();
 		dungeonBuilder.placeEntrance();
 		dungeonBuilder.placeLastBossPos();
