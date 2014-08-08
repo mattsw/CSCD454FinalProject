@@ -7,6 +7,7 @@ package character;
 
 import java.util.Scanner;
 
+import Inventory.EquipmentFactory;
 import combat.behaviors.ThiefShank;
 import combat.behaviors.ThiefStab;
 
@@ -22,6 +23,7 @@ public class Thief extends Good {
 		this.armorMultiplier = 0.5;
 		this.nextLevel = 500;
 		this.xp = 0;
+		equipStartingArmor();
 	}
 	
 	public void levelUp(){
@@ -67,5 +69,4 @@ public class Thief extends Good {
 			}
 		}
 	}
-	
 }

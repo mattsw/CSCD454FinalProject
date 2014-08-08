@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Inventory.Consumables.Consumable;
-import Inventory.Equipables.*;
+import Inventory.Equipables.Armors.ArmorPiece;
 
 public class PartyInventory {
 	
@@ -15,7 +15,7 @@ public class PartyInventory {
 	int consumableCount;
 	int equipableCount;
 	ArrayList<Consumable> consumables;
-	ArrayList<IEquipable> equipables;
+	ArrayList<ArmorPiece> armors;
 	
 	public static  PartyInventory getInventory(){
 		if(inventory == null){
@@ -30,22 +30,22 @@ public class PartyInventory {
 		this.consumableCount = 0;
 		this.equipableCount = 0;
 		this.consumables = new ArrayList<Consumable>();
-		this.equipables = new ArrayList<IEquipable>();
+		this.armors = new ArrayList<ArmorPiece>();
 	}
 	
-	public void useEquipable(character.Character target){
-		if(equipables.isEmpty()){
+	public void useArmor(character.Character target){
+		if(armors.isEmpty()){
 			System.out.println("You have nothing to equip!");
 		}
 		else{
 			System.out.println("What would you like to equip?:");
-			displayEquipables();
+			displayArmor();
 			//More coming
 		}
 	}
 	
 	public void useConsumable(character.Character target){
-		if(equipables.isEmpty()){
+		if(armors.isEmpty()){
 			System.out.println("You have nothing to consume!");
 		}
 		else{
@@ -86,10 +86,10 @@ public class PartyInventory {
 		}
 	}
 	
-	public void displayEquipables(){
+	public void displayArmor(){
 		int i = 1;
-		for(IEquipable item:equipables){
-			System.out.println(i+". "+item.getItemType());
+		for(ArmorPiece item:armors){
+			System.out.println(i+". "+item.getItemName());
 			i++;
 		}
 	}
@@ -104,18 +104,18 @@ public class PartyInventory {
 	
 	public void displayInventory(){
 		System.out.println("EQUIPABLE ITEMS:");
-		displayEquipables();
+		displayArmor();
 		System.out.println("CONSUMABLE ITEMS:");
 		displayConsumables();
 		System.out.println("Inventory slots remaining: "+(maxItems-itemCount));
 	}
 	
-	public void addEquipable(IEquipable item){
+	public void addArmor(ArmorPiece item){
 		if(itemCount == maxItems){
 			System.out.println("No more inventory space!");
 		}
 		else{
-			this.equipables.add(item);
+			this.armors.add(item);
 			this.itemCount++;
 			this.equipableCount++;
 		}

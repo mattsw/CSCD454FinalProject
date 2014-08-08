@@ -7,6 +7,7 @@ package character;
 
 import java.util.Scanner;
 
+import Inventory.EquipmentFactory;
 import combat.behaviors.WarriorGut;
 import combat.behaviors.WarriorSlice;
 
@@ -24,6 +25,7 @@ public class Warrior extends Good {
 		this.armorMultiplier = 0.9;
 		this.nextLevel = 500;
 		this.xp = 0;
+		equipStartingArmor();
 	}
 	
 	public void levelUp(){
@@ -69,5 +71,4 @@ public class Warrior extends Good {
 			}
 		}
 	}
-
 }

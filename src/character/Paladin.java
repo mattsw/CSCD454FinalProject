@@ -7,6 +7,8 @@ package character;
 
 import java.util.Scanner;
 
+import Inventory.EquipmentFactory;
+import Inventory.ItemFactory;
 import combat.behaviors.PaladinHammer;
 import combat.behaviors.PaladinSmite;
 
@@ -22,6 +24,7 @@ public class Paladin extends Good {
 		this.armorMultiplier = 1;
 		this.nextLevel = 500;
 		this.xp = 0;
+		equipStartingArmor();
 	}
 	
 	public void levelUp(){

@@ -7,6 +7,7 @@ package character;
 
 import java.util.Scanner;
 
+import Inventory.EquipmentFactory;
 import combat.behaviors.WizzardLightning;
 import combat.behaviors.WizzardStaff;
 
@@ -24,6 +25,7 @@ public class Wizzard extends Good {
 		this.armorMultiplier = 0.4;
 		this.nextLevel = 500;
 		this.xp = 0;
+		equipStartingArmor();
 	}
 	
 	public void levelUp(){

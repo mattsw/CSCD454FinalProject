@@ -7,6 +7,7 @@ package character;
 
 import java.util.Scanner;
 
+import Inventory.EquipmentFactory;
 import combat.behaviors.ShamanHex;
 import combat.behaviors.ShamanStrike;
 
@@ -22,6 +23,7 @@ public class Shaman extends Good {
 		this.armorMultiplier = 0.6;
 		this.nextLevel = 500;
 		this.xp = 0;
+		equipStartingArmor();
 	}
 	
 	public void levelUp(){
@@ -67,5 +69,4 @@ public class Shaman extends Good {
 			}
 		}
 	}
-	
 }

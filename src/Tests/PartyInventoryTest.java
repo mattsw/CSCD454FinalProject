@@ -15,17 +15,17 @@ public class PartyInventoryTest {
 		ItemFactory consume = new ConsumableFactory();
 		ItemFactory equip = new EquipmentFactory();
 		
-		Consumable potion = (Consumable)consume.generateItem("Potion");
+		Consumable potion = (Consumable)consume.generateItem("SuperPotion");
 		ArmorPiece armor = (ArmorPiece)equip.generateItem("Boots", "Goblin");
 		
 		inventory.addConsumable(potion);
-		inventory.addEquipable(armor);
+		inventory.addArmor(armor);
 		
 		potion = (Consumable)consume.generateItem("Potion");
-		armor = (ArmorPiece)equip.generateItem("Boots", "Goblin");
+		armor = (ArmorPiece)equip.generateItem("Boots", "Dragon");
 		
 		inventory.addConsumable(potion);
-		inventory.addEquipable(armor);
+		inventory.addArmor(armor);
 		
 		System.out.println("TEST DISPLAY INVENTORY");
 		System.out.println();
@@ -54,7 +54,6 @@ public class PartyInventoryTest {
 		System.out.println("INVENTORY AFTER USE");
 		System.out.println();
 		inventory.displayInventory();
-
 	}
 
 }

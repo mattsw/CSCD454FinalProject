@@ -8,6 +8,7 @@ package character;
 import java.util.Scanner;
 
 import combat.behaviors.*;
+import Inventory.EquipmentFactory;
 import Inventory.Equipables.*;
 import Party.PartyInventory;
 
@@ -17,7 +18,7 @@ public abstract class Good extends Character {
 	protected double nextLevel;
 	protected int level;
 	protected double armorMultiplier;
-	protected ArmorSet armor = null; //Will implement with basic starting armor later
+	protected ArmorSet armor = new ArmorSet();
 	
 	public void addEXP(int EXP){
 		if(this.isAlive()){
@@ -32,8 +33,7 @@ public abstract class Good extends Character {
 	public abstract void levelUp();
 	
 	public double getDefenceRating(){
-		//return armor.getDefenseRating()*this.armorMultiplier;
-		return 5;//For testing purposes until armor is equipped
+		return armor.getDefenseRating()*this.armorMultiplier;
 	}
 
 	public void combatUseItem(){
@@ -79,5 +79,14 @@ public abstract class Good extends Character {
 				}
 			}
 		}
-	}	
+	}
+	
+	public void equipStartingArmor(){
+		EquipmentFactory equip = new EquipmentFactory();
+		this.armor.equip(equip.generateItem("Boots","Starter"));
+		this.armor.equip(equip.generateItem("Gloves","Starter"));
+		this.armor.equip(equip.generateItem("ChestPiece","Starter"));
+		this.armor.equip(equip.generateItem("Legs","Starter"));
+		this.armor.equip(equip.generateItem("Helmet","Starter"));
+	}
 }

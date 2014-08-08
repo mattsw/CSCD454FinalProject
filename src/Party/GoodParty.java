@@ -69,7 +69,7 @@ public class GoodParty extends Party{
 			this.inventory.useConsumable(members.get(heroIndex));
 		}
 		else{
-			this.inventory.useEquipable(members.get(heroIndex));
+			this.inventory.useArmor(members.get(heroIndex));
 		}
 	}
 	
@@ -118,10 +118,10 @@ public class GoodParty extends Party{
 		
 		System.out.println("What type of item do you wish to use?");
 		System.out.println("1. Consumable");
-		System.out.println("2. Equipable");
+		System.out.println("2. Armor");
 		
 		while(choice < 1 || choice > 2){
-			System.out.print("Choose your item type(example 2 = Equipable): ");
+			System.out.print("Choose your item type(example 2 = Armor): ");
 			try{
 				choice = getChoice.nextInt();
 				System.out.println();

@@ -42,6 +42,8 @@ public class ArmorSet implements IArmor {
 			//equip pants
 			this.legs = (Legs)item;
 		}
-		updateSetBonus();
+		if(this.chestPiece != null && this.gloves != null && this.helmet != null && this.legs != null && this.boots != null){
+			updateSetBonus();
+		}
 	}
 }
