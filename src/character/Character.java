@@ -81,15 +81,17 @@ public abstract class Character {
 	}
 	
 	public void attack(character.Character target){
-		setAttackBehavior();
-		boolean hasDefended = false;
-		double damage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()))- (target.getDefenceRating());
-		if(damage > 0){
-			hasDefended = target.defend();
-		}
-		if(!hasDefended && damage > 0){
-			target.setCurHealth(target.getCurHealth() - damage);
-			System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
+		if(this.isAlive()){
+			setAttackBehavior();
+			boolean hasDefended = false;
+			double damage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()))- (target.getDefenceRating());
+			if(damage > 0){
+				hasDefended = target.defend();
+			}
+			if(!hasDefended && damage > 0){
+				target.setCurHealth(target.getCurHealth() - damage);
+				System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
+			}
 		}
 	}
 	
