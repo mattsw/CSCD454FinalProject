@@ -5,6 +5,8 @@
 
 package character;
 
+import Inventory.Equipables.Armors.ArmorPiece;
+
 public abstract class Bad extends Character {
 	
 	protected double difMultiplier;
@@ -17,12 +19,16 @@ public abstract class Bad extends Character {
 	public boolean defend(){
 		return defend.defend(this.speed, this.name);
 	}
-	
+
 	public void addEXP(int EXP){
 		//Not currently Implemented
 	}
 
 	public void combatUseItem(){
+		//Not currently Implemented
+	}
+	
+	public void equipArmorPiece(ArmorPiece toEquip){
 		//Not currently Implemented
 	}
 }

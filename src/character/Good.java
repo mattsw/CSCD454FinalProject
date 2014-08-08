@@ -10,6 +10,7 @@ import java.util.Scanner;
 import combat.behaviors.*;
 import Inventory.EquipmentFactory;
 import Inventory.Equipables.*;
+import Inventory.Equipables.Armors.ArmorPiece;
 import Party.PartyInventory;
 
 public abstract class Good extends Character {
@@ -79,6 +80,10 @@ public abstract class Good extends Character {
 				}
 			}
 		}
+	}
+	
+	public void equipArmorPiece(ArmorPiece toEquip){
+		this.armor.equip(toEquip);
 	}
 	
 	public void equipStartingArmor(){

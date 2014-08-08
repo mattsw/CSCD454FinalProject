@@ -6,8 +6,6 @@
 package character;
 
 import java.util.Scanner;
-
-import Inventory.EquipmentFactory;
 import combat.behaviors.WarriorGut;
 import combat.behaviors.WarriorSlice;
 

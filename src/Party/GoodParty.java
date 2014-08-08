@@ -24,6 +24,7 @@ public class GoodParty extends Party{
 	}
 	
 	private void addMembers(int [] choices){
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		String name;
 		for(int i = 0; i < choices.length; i++){
@@ -58,7 +59,6 @@ public class GoodParty extends Party{
 				this.members.add(new Paladin(name));
 			}
 		}
-		input.close();
 	}
 	
 	public void useItem(){
@@ -74,6 +74,7 @@ public class GoodParty extends Party{
 	}
 	
 	public int getCharacter(){
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = -1;
 		
@@ -82,7 +83,7 @@ public class GoodParty extends Party{
 		System.out.println("3. "+this.members.get(2).getName());
 		
 		while(choice < 1 || choice > 3){
-			System.out.print("Choose the number of your Hero(Example: 2 = "+this.members.get(1).getName()+":");
+			System.out.print("Choose the number of your Hero(Example: 2 = "+this.members.get(1).getName()+"):");
 			try{
 				choice = getChoice.nextInt();
 				System.out.println();
@@ -92,7 +93,7 @@ public class GoodParty extends Party{
 				choice = -1000;//Cause invalid message to re-prompt input
 			}
 			
-			if(choice < 1  || choice > 2){
+			if(choice < 1  || choice > 3){
 				System.out.println("Invalid choice. Try again!");
 			}
 			else{
@@ -107,12 +108,13 @@ public class GoodParty extends Party{
 				}
 			}
 		}
-		getChoice.close();
+		
 		return choice;
 	}
 	
 	public int getItemTypeChoice(){
 		
+		@SuppressWarnings("resource")
 		Scanner getChoice = new Scanner(System.in);
 		int choice = 0;
 		
@@ -135,7 +137,6 @@ public class GoodParty extends Party{
 				System.out.println("Invalid choice. Try again!");
 			}
 		}
-		getChoice.close();
 		return choice;
 	}
 	

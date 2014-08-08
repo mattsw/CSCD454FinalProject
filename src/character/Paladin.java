@@ -6,9 +6,6 @@
 package character;
 
 import java.util.Scanner;
-
-import Inventory.EquipmentFactory;
-import Inventory.ItemFactory;
 import combat.behaviors.PaladinHammer;
 import combat.behaviors.PaladinSmite;
 

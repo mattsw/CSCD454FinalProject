@@ -5,6 +5,7 @@
 
 package character;
 
+import Inventory.Equipables.Armors.ArmorPiece;
 import combat.behaviors.*;
 
 public abstract class Character {
@@ -108,4 +109,5 @@ public abstract class Character {
 	public abstract void setAttackBehavior();
 	public abstract double getDefenceRating();
 	public abstract void combatUseItem();
+	public abstract void equipArmorPiece(ArmorPiece toEquip);
 }

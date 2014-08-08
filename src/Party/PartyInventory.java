@@ -3,6 +3,7 @@ package Party;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Inventory.Item;
 import Inventory.Consumables.Consumable;
 import Inventory.Equipables.Armors.ArmorPiece;
 
@@ -13,7 +14,7 @@ public class PartyInventory {
 	int maxItems;
 	int itemCount;
 	int consumableCount;
-	int equipableCount;
+	int armorCount;
 	ArrayList<Consumable> consumables;
 	ArrayList<ArmorPiece> armors;
 	
@@ -28,7 +29,7 @@ public class PartyInventory {
 		this.maxItems = 40;
 		this.itemCount = 0;
 		this.consumableCount = 0;
-		this.equipableCount = 0;
+		this.armorCount = 0;
 		this.consumables = new ArrayList<Consumable>();
 		this.armors = new ArrayList<ArmorPiece>();
 	}
@@ -40,10 +41,38 @@ public class PartyInventory {
 		else{
 			System.out.println("What would you like to equip?:");
 			displayArmor();
-			//More coming
+			System.out.println("0. Exit Inventory");
+			@SuppressWarnings("resource")
+			Scanner getChoice = new Scanner(System.in);
+			int choice = -1;
+			
+			while(choice < 0 || choice > this.armorCount){
+				System.out.println();
+				System.out.print("Please choose the number of the item you would like to use(example: 1 = "+armors.get(0).getItemName()+"): ");
+				try{
+					choice = getChoice.nextInt();
+					System.out.println();
+				}
+				catch(Exception e){//Bad input
+					getChoice.next();//Clear buffer
+					choice = -1000;//Cause invalid message to re-prompt input
+				}
+				
+				if(choice < 0  || choice > this.armorCount){
+					System.out.println("Invalid choice. Try again!");
+				}
+				else{
+					if(choice != 0){
+						choice = choice - 1;//For list index retrieval
+						target.equipArmorPiece(armors.get(choice));
+						this.armors.remove(choice);
+						this.itemCount--;
+					}
+				}
+			}
 		}
 	}
-	
+
 	public void useConsumable(character.Character target){
 		if(armors.isEmpty()){
 			System.out.println("You have nothing to consume!");
@@ -110,18 +139,18 @@ public class PartyInventory {
 		System.out.println("Inventory slots remaining: "+(maxItems-itemCount));
 	}
 	
-	public void addArmor(ArmorPiece item){
+	private void addArmor(ArmorPiece item){
 		if(itemCount == maxItems){
 			System.out.println("No more inventory space!");
 		}
 		else{
 			this.armors.add(item);
 			this.itemCount++;
-			this.equipableCount++;
+			this.armorCount++;
 		}
 	}
 	
-	public void addConsumable(Consumable item){
+	private void addConsumable(Consumable item){
 		if(itemCount == maxItems){
 			System.out.println("No more inventory space!");
 		}
@@ -129,6 +158,15 @@ public class PartyInventory {
 			this.consumables.add(item);
 			this.itemCount++;
 			this.consumableCount++;
+		}
+	}
+	
+	public void addItem(Item item){
+		if(item instanceof Consumable){
+			addConsumable((Consumable)item);
+		}
+		if(item instanceof ArmorPiece){
+			addArmor((ArmorPiece)item);
 		}
 	}
 }
