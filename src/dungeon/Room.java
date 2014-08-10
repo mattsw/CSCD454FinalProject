@@ -7,26 +7,18 @@ package dungeon;
 
 import java.util.Random;
 
-public class Room {
-	TreasureChest chest;
-	boolean nDoor;
-	boolean eDoor;
-	boolean sDoor;
-	boolean wDoor;
-	
-	public Room(double chestMod) {
-		generateDoors();
-		generateChest(chestMod);
-	}
+import Party.Party;
 
-	private void generateChest(double chestMod) {
-		Random rand = new Random();
-		
-		if(rand.nextDouble() <= chestMod) {
-			this.chest = new TreasureChest();
-		} else {
-			this.chest = null;
-		}
+public abstract class Room {
+	protected Dungeon dungeon;
+	protected boolean nDoor;
+	protected boolean eDoor;
+	protected boolean sDoor;
+	protected boolean wDoor;
+	
+	public Room(double chestMod, Dungeon dungeon) {
+		generateDoors();
+		this.dungeon = dungeon;
 	}
 
 	private void generateDoors() {
@@ -41,7 +33,27 @@ public class Room {
 		if(rand.nextInt(100) < 95) 
 			this.wDoor = true;
 	}
-
+	
+	@Override
+	public String toString() {
+		String message = "There are exits in the following directions:\n";
+		
+		if(this.nDoor) {
+			message += "     North\n";
+		}
+		if(this.eDoor) {
+			message += "     East\n";
+		}
+		if(this.sDoor) {
+			message += "     South\n";
+		}
+		if(this.wDoor) {
+			message += "     West\n\n";
+		}
+		
+		return message;
+	}
+	
 	public boolean hasNDoor() {
 		return nDoor;
 	}
@@ -74,4 +86,8 @@ public class Room {
 		this.wDoor = wDoor;
 	}
 	
+	public Dungeon getDungeon() {
+		return this.dungeon;
+	}
+	public abstract void entered(Party goodParty, int curFloor);
 }

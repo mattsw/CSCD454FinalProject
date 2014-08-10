@@ -20,9 +20,7 @@ public class DungeonsAndDragons {
 		int difficulty = obtainDifficulty();
 		DunBuilderDirector dunCreator = new DunBuilderDirector();
 		Dungeon dungeon = dunCreator.construct(difficulty);
-		PartyFactory partyFactory = new PartyFactory();
-		Party goodGuys = partyFactory.makeGoodParty();
-		GameCore curGame = new GameCore(dungeon, goodGuys, partyFactory);
+		GameCore curGame = GameCore.getGameCore(dungeon);
 		
 		curGame.play();
 	}

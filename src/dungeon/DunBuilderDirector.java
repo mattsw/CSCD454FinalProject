@@ -6,10 +6,6 @@
 package dungeon;
 
 import dungeon.DungeonBuilderInterface;
-import dungeon.EasyDungeonBuilder;
-import dungeon.HardDungeonBuilder;
-import dungeon.MediumDungeonBuilder;
-import dungeon.NormalDungeonBuilder;
 
 public class DunBuilderDirector {
 	public Dungeon construct(int difficulty) {
@@ -20,6 +16,9 @@ public class DunBuilderDirector {
 		dungeonBuilder.placeEntrance();
 		dungeonBuilder.placeLastBossPos();
 		dungeonBuilder.verifyDungeon();
-		return dungeonBuilder.getDungeon();
+		Dungeon dungeon = dungeonBuilder.getDungeon();
+		dungeon.setPlayerVertPos(0); //do this to update gameCore
+		
+		return dungeon;
 	}
 }

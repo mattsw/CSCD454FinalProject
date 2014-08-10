@@ -6,18 +6,18 @@
 package dungeon;
 
 public class Floor {
-	Room floor[][];
-	Point uVine, dVine;
+	private Room floor[][];
+	private Point uVine, dVine;
 	
-	public Floor(int floorSize, double chestMod) {
+	public Floor(int floorSize, double chestMod, Dungeon dungeon) {
 		this.floor = new Room[floorSize][floorSize];
-		fillFloor(chestMod);
+		fillFloor(chestMod, dungeon);
 	}
 	
-	private void fillFloor(double chestMod) {
+	private void fillFloor(double chestMod, Dungeon dungeon) {
 		for(int i = 0; i < this.floor.length; i++) {
 			for(int j = 0; j < this.floor.length; j ++) {
-				this.floor[i][j] = new Room(chestMod);
+				this.floor[i][j] = new NormalRoom(chestMod, dungeon);
 			}
 		}
 	}
@@ -36,5 +36,8 @@ public class Floor {
 	}
 	public void setDVine(Point point) {
 		this.dVine = point;
+	}
+	public Room getRoom(Point floorPos) {
+		return this.floor[floorPos.getX()][floorPos.getY()];
 	}
 }

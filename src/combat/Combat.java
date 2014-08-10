@@ -8,6 +8,7 @@ package combat;
 import character.Character;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import Party.*;
 
@@ -35,6 +36,14 @@ public class Combat {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	
+	public static void chanceFight(Party goodGuys, int curFloor) {
+		Random rand = new Random();
+		if(rand.nextInt(4) == 0) {
+			Combat curFight = new Combat(goodGuys, new BadParty(curFloor));
+			curFight.fight();
 		}
 	}
 }
