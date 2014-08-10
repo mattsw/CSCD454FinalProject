@@ -13,6 +13,8 @@ import Party.PartyInventory;
 public class PartyInventoryTest {
 
 	public static void main(String[] args) {
+		PartyFactory factory = new PartyFactory();
+		Party good = factory.makeGoodParty();
 		PartyInventory inventory = PartyInventory.getInventory();
 		ItemFactory consume = new ConsumableFactory();
 		ItemFactory equip = new EquipmentFactory();
@@ -60,8 +62,6 @@ public class PartyInventoryTest {
 		System.out.println();
 		System.out.println("CREATE A PARTY");
 		System.out.println();
-		PartyFactory factory = new PartyFactory();
-		Party good = factory.makeGoodParty();
 		
 		for(character.Character cur: good){
 			System.out.println(cur.getName()+" armor rating: "+cur.getDefenceRating());

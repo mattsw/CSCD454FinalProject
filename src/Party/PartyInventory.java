@@ -3,7 +3,10 @@ package Party;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Inventory.ConsumableFactory;
+import Inventory.EquipmentFactory;
 import Inventory.Item;
+import Inventory.ItemFactory;
 import Inventory.Consumables.Consumable;
 import Inventory.Equipables.Armors.ArmorPiece;
 
@@ -15,23 +18,35 @@ public class PartyInventory {
 	int itemCount;
 	int consumableCount;
 	int armorCount;
+	Party party;
 	ArrayList<Consumable> consumables;
 	ArrayList<ArmorPiece> armors;
 	
-	public static  PartyInventory getInventory(){
+	
+	public static  PartyInventory getInventory(Party party){
 		if(inventory == null){
-			inventory = new PartyInventory();
+			inventory = new PartyInventory(party);
 		}
 		return inventory;
 	}
 	
-	private PartyInventory(){
-		this.maxItems = 40;
+	public static  PartyInventory getInventory(){
+		return inventory;
+	}
+	
+	private PartyInventory(Party party){
+		this.maxItems = 50;
 		this.itemCount = 0;
 		this.consumableCount = 0;
 		this.armorCount = 0;
 		this.consumables = new ArrayList<Consumable>();
 		this.armors = new ArrayList<ArmorPiece>();
+		this.party = party;
+		ItemFactory consume = new ConsumableFactory();
+		ItemFactory equip = new EquipmentFactory();
+		this.addItem(consume.generateItem("Potion"));
+		this.addItem(consume.generateItem("Potion"));
+		this.addItem(equip.generateItem("Helmet","Goblin"));
 	}
 	
 	public void useArmor(character.Character target){
@@ -169,4 +184,8 @@ public class PartyInventory {
 			addArmor((ArmorPiece)item);
 		}
 	}
+	
+	public Party getParty(){
+		return this.party;
+	}	
 }

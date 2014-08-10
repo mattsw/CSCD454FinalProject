@@ -8,10 +8,12 @@ package Party;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import Inventory.Item;
+
 public abstract class Party implements Iterable<character.Character>{
 	protected int size;
 	protected ArrayList<character.Character> members;
-	protected PartyInventory inventory = PartyInventory.getInventory();
+	protected PartyInventory inventory; 
 	
 	ArrayList<character.Character> getParty(){
 		return members;
@@ -58,6 +60,11 @@ public abstract class Party implements Iterable<character.Character>{
 			}
 		}
 		return false;
+	}
+	
+	
+	public void addItem(Item toAdd){
+		inventory.addItem(toAdd);
 	}
 	
 	public abstract void useItem();

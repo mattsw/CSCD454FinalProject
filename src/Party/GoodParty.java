@@ -14,6 +14,7 @@ public class GoodParty extends Party{
 	public GoodParty(int [] choices){
 		this.members = new ArrayList<character.Character>();
 		this.size = 3;
+		this.inventory = PartyInventory.getInventory(this);
 		addMembers(choices);
 	}
 	
@@ -97,15 +98,7 @@ public class GoodParty extends Party{
 				System.out.println("Invalid choice. Try again!");
 			}
 			else{
-				if(choice == 1){
-					choice = 0;
-				}
-				else if(choice == 2){
-					choice = 1;
-				}
-				else{
-					choice = 2;
-				}
+				return choice-1; //For index
 			}
 		}
 		

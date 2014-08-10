@@ -2,6 +2,9 @@ package main;
 
 import java.util.Scanner;
 
+import Inventory.Item;
+import Inventory.RandomItemFactory;
+import Party.PartyInventory;
 import dungeon.NormalRoom;
 import dungeon.DVineRoom;
 import dungeon.UVineRoom;
@@ -13,12 +16,14 @@ import dungeon.Dungeon;
 public class Command {
 	private String command;
 	private Dungeon curDungeon;
+	private PartyInventory inventory;
 	Room curRoom;
 	
 	public Command(Room curRoom) {
 		this.curRoom = curRoom;
 		this.command = getCommand();
 		this.curDungeon = curRoom.getDungeon();
+		this.inventory = PartyInventory.getInventory();
 	}
 	
 	private String getCommand() {
@@ -27,6 +32,7 @@ public class Command {
 		
 		while(true) {
 			command = cin.nextLine();
+			
 			if(curRoom.hasEDoor()) {
 				if (command.equalsIgnoreCase("e")) {
 					break;
@@ -85,7 +91,7 @@ public class Command {
 		} else if (command.equalsIgnoreCase("help")) {
 			printHelp();
 		} else if (command.equalsIgnoreCase("use")) {
-			//TODO add item usability
+			inventory.getParty().useItem();
 		} else if(command.equalsIgnoreCase("exit")) {
 			System.exit(0); //TODO close program nicer
 		} else if(command.equalsIgnoreCase("open")) {
@@ -102,6 +108,8 @@ public class Command {
 	}
 	
 	private void openChest() {
-		//TODO add random item to player and ask for another command
+		RandomItemFactory factory = new RandomItemFactory();
+		Item item = factory.generateItem();
+		inventory.addItem(item);
 	}
 }
