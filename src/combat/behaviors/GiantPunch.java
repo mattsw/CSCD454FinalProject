@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class GiantPunch implements AttackBehavior{
 	public double attack(double atkPower, String atName, String dfName){
-		System.out.println(atName+" attemts to punch "+dfName+" with a mighty blow!");
+		System.out.println(atName+" attempts to punch "+dfName+" with a mighty blow!");
 		Random rand = new Random();
 		if(rand.nextInt(100) + 1 < 10){
 			System.out.println("The attack misses!");

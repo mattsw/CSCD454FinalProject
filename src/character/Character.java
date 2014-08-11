@@ -75,10 +75,7 @@ public abstract class Character {
 	}
 	
 	public boolean isAlive(){
-		if(this.curHealth <= 0){
-			return false;
-		}
-		return true;
+		return this.curHealth > 0;
 	}
 	
 	public void attack(character.Character target){

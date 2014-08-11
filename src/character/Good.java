@@ -53,7 +53,7 @@ public abstract class Good extends Character {
 		
 		System.out.println();
 		System.out.println("What defense would do you want you use?:");
-		System.out.println("1. Bock");
+		System.out.println("1. Block");
 		System.out.println("2. Evade");
 		
 		
