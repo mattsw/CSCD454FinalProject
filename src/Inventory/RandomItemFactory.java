@@ -43,7 +43,6 @@ public class RandomItemFactory implements ItemFactory {
 		this.sets.add("Ogre");
 		this.sets.add("Dragon");
 		this.sets.add("Goblin");
-		this.sets.add("Starter");
 		this.sets.add("Troll");
 	}
 	

@@ -25,8 +25,7 @@ public class ArmorSet implements IArmor {
 	}
 
 	public int getDefenseRating() {
-		// TODO Auto-generated method stub
-		return 0;
+		return calculateCoreDefenseBonus();
 	}
 
 	public void equip(IEquipable item) {

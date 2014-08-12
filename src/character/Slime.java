@@ -16,7 +16,7 @@ public class Slime extends Bad {
 	public Slime(int floorMod){
 		this.name = "Slime";
 		this.difMultiplier = (0.5 * (floorMod+1));
-		this.health = (35 * this.difMultiplier);
+		this.health = (20 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (12 * this.difMultiplier);
 		this.speed = (10 * this.difMultiplier);
