@@ -21,7 +21,7 @@ public class BadParty extends Party{
 	
 	public void addMonsters(){
 		Random rand = new Random();
-		this.size = rand.nextInt(3) + 3; //Random group size between 1 and 5
+		this.size = rand.nextInt(3) + 3; //Random group size between 3 and 5
 		for(int i = 0; i < this.size; i++){ //Add five random bad guys to party
 			
 			int pickMonster = rand.nextInt(5) + 1;
