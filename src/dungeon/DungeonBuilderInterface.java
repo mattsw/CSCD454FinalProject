@@ -9,6 +9,7 @@ public interface DungeonBuilderInterface {
 	public void buildFloors();
 	public void placeEntrance();
 	public void placeLastBossPos();
+	public void closeDoors();
 	public void verifyDungeon();
 	public Dungeon getDungeon();
 }

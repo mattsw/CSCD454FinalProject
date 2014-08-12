@@ -12,7 +12,7 @@ public class StartRoom extends Room {
 	@Override
 	public String toString() {
 		String message = "You arrive in a complex cave network.  You feel" +
-				"an unexplainable urge to find the master of these caves and slay it!\n";
+				" an unexplainable urge to find the master of these caves and slay it!\n";
 		message += super.toString();
 		
 		return message;

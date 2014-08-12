@@ -18,7 +18,7 @@ public class Command {
 	private String command;
 	private Dungeon curDungeon;
 	private PartyInventory inventory;
-	Room curRoom;
+	private Room curRoom;
 	
 	public Command(Room curRoom) {
 		this.curRoom = curRoom;
@@ -28,60 +28,66 @@ public class Command {
 	}
 	
 	private String getCommand() {
-		String command = "";
+		String commandTest = "";
 		@SuppressWarnings("resource")
 		Scanner cin = new Scanner(System.in);
 		
 		while(true) {
-			command = cin.nextLine();
+			commandTest = cin.nextLine();
 			
 			if(curRoom.hasEDoor()) {
-				if (command.equalsIgnoreCase("e")) {
+				if (commandTest.equalsIgnoreCase("e")) {
 					break;
 				}
-			} else if(curRoom.hasNDoor()) {
-				if (command.equalsIgnoreCase("n")) {
+			} 
+			if(curRoom.hasNDoor()) {
+				if (commandTest.equalsIgnoreCase("n")) {
 					break;
 				}
-			} else if(curRoom.hasSDoor()) {
-				if (command.equalsIgnoreCase("s")) {
+			} 
+			if(curRoom.hasSDoor()) {
+				if (commandTest.equalsIgnoreCase("s")) {
 					break;
 				}
-			} else if(curRoom.hasWDoor()) {
-				if (command.equalsIgnoreCase("w")) {
+			} 
+			if(curRoom.hasWDoor()) {
+				if (commandTest.equalsIgnoreCase("w")) {
 					break;
 				}
-			} else if (command.equalsIgnoreCase("help")) {
+			} 
+			if (commandTest.equalsIgnoreCase("help")) {
 				break;
-			} else if (command.equalsIgnoreCase("use")) {
+			} 
+			if (commandTest.equalsIgnoreCase("use")) {
 				break;
-			} else if(command.equalsIgnoreCase("exit")) {
+			}
+			if(commandTest.equalsIgnoreCase("exit")) {
 				break;
-			} else if(curRoom.getClass() == NormalRoom.class) {  //found at http://stackoverflow.com/questions/4294844/check-if-an-object-belongs-to-a-class-in-java
+			}
+			if(curRoom.getClass() == NormalRoom.class) {  //found at http://stackoverflow.com/questions/4294844/check-if-an-object-belongs-to-a-class-in-java
 				NormalRoom temp = (NormalRoom) curRoom;
 				if(temp.hasChest()) {
-					if(command.equalsIgnoreCase("open")) {
+					if(commandTest.equalsIgnoreCase("open")) {
 						break;
 					}
 				}
-			} else if(curRoom.getClass() == DVineRoom.class) {
-				if(command.equalsIgnoreCase("down")) {
-					break;
-				}
-			} else if(curRoom.getClass() == UVineRoom.class) {
-				if(command.equalsIgnoreCase("up")) {
-					break;
-				}
-			} else {
-				System.out.println("You must enter a valid command.  Enter help if needed.\n");
 			}
+			if(curRoom.getClass() == DVineRoom.class) {
+				if(commandTest.equalsIgnoreCase("down")) {
+					break;
+				}
+			}
+			if(curRoom.getClass() == UVineRoom.class) {
+				if(commandTest.equalsIgnoreCase("up")) {
+					break;
+				}
+			}
+			System.out.println("You must enter a valid command.  Enter help if needed.\n");
 		}
-		return command;
+		return commandTest;
 	}
 	
 	public void execute() {
-		GameCore gameCore = GameCore.getGameCore();
-		
 		if (command.equalsIgnoreCase("e")) {
 			this.curDungeon.setPlayerHorizPos(this.curDungeon.getPlayerPos().getX() + 1, this.curDungeon.getPlayerPos().getY());
 		} else if (command.equalsIgnoreCase("n")) {
@@ -93,7 +99,7 @@ public class Command {
 		} else if (command.equalsIgnoreCase("help")) {
 			printHelp();
 		} else if (command.equalsIgnoreCase("use")) {
-			inventory.getParty().useItem();
+			this.inventory.getParty().useItem();
 		} else if(command.equalsIgnoreCase("exit")) {
 			System.exit(0); //TODO close program nicer
 		} else if(command.equalsIgnoreCase("open")) {
@@ -107,6 +113,7 @@ public class Command {
 	
 	private void printHelp() {
 		System.out.println("Hey im helpful!");  //TODO print a help menu
+		getCommand();
 	}
 	
 	private void openChest() {

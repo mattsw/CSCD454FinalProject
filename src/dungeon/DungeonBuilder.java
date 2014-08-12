@@ -110,23 +110,68 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 		return UVineY;
 	}
 	
+	public void closeDoors() {
+		for(int i = 0; i < this.numFloors; i++) {
+			closeRFloorDoors(this.dungeon.getFloorArray(i));
+		}
+	}
+	//close random doors in a floor
+	private void closeRFloorDoors(Room[][] floorArray) {
+		Random rand = new Random();
+		for(int x = 0; x < this.floorSize; x++) {
+			for(int y = 0; y < this.floorSize; y++) {
+				if(rand.nextInt(100) > 95) {
+					floorArray[x][y].setNDoor(false);
+					if(y > 0) {
+						floorArray[x][y - 1].setSDoor(false);
+					}
+				}
+				if(rand.nextInt(100) > 95) {
+					floorArray[x][y].setEDoor(false);
+				
+					if(x < this.floorSize - 2) {
+						floorArray[x + 1][y].setWDoor(false);
+					}
+				}
+				if(rand.nextInt(100) > 95) {
+					floorArray[x][y].setSDoor(false);
+					
+					if(y < this.floorSize - 2) {
+						floorArray[x][y + 1].setNDoor(false);
+					}
+				}
+				if(rand.nextInt(100) > 95) {
+					floorArray[x][y].setWDoor(false);
+					
+					if(x > 0) {
+						floorArray[x - 1][y].setEDoor(false);
+					}
+				}
+			}
+		}
+	}
+	
+	//close outer doors of all floors
 	private void closeOutterDoors() {
 		for(int i = 0; i < this.numFloors; i++) {
-			Room[][] curFloor = this.dungeon.getFloorArray(i);
-			for(int j = 0; j < this.floorSize; j++) {
-				for(int k = 0; k < this.floorSize; k++) {
-					if(j == 0) {
-						curFloor[j][k].setWDoor(false);
-					}
-					if(k == 0) {
-						curFloor[j][k].setNDoor(false);
-					}
-					if(j == this.floorSize - 1) {
-						curFloor[j][k].setEDoor(false);
-					}
-					if(k == this.floorSize - 1) {
-						curFloor[j][k].setSDoor(false);
-					}
+			closeOFloorDoors(this.dungeon.getFloorArray(i));
+		}
+	}
+	//close the outer doors of a floor
+	private void closeOFloorDoors (Room[][] floorArray) {
+		for(int j = 0; j < this.floorSize; j++) {
+			for(int k = 0; k < this.floorSize; k++) {
+				if(j == 0) {
+					floorArray[j][k].setWDoor(false);
+				}
+				if(k == 0) {
+					floorArray[j][k].setNDoor(false);
+				}
+				if(j == this.floorSize - 1) {
+					floorArray[j][k].setEDoor(false);
+				}
+				if(k == this.floorSize - 1) {
+					floorArray[j][k].setSDoor(false);
 				}
 			}
 		}
@@ -152,7 +197,7 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 
 	public void placeLastBossPos() {
 		Random rand = new Random();
-		Room[][] temp = this.dungeon.getFloorArray(0);
+		Room[][] temp = this.dungeon.getFloorArray(this.numFloors - 1);
 		
 		int x = rand.nextInt(this.floorSize);
 		int y = rand.nextInt(this.floorSize);
@@ -185,6 +230,9 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 			}
 			if(!floorIsValid(this.dungeon.getFloorArray(i), start, end)) {
 				this.dungeon.replaceFloor(this.floorSize, this.chestMod, i);
+				closeRFloorDoors(this.dungeon.getFloorArray(i));
+				closeOFloorDoors(this.dungeon.getFloorArray(i));
+				i--;
 			}
 		}
 	}

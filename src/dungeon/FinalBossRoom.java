@@ -1,6 +1,7 @@
 package dungeon;
 
 import main.Command;
+import main.GameCore;
 import combat.Combat;
 import Party.Party;
 
@@ -24,6 +25,7 @@ public class FinalBossRoom extends Room {
 		System.out.println(this);
 		//TODO fight final boss.  game ends after boss is defeated
 		
+		GameCore gameCore = GameCore.getGameCore();
 		System.exit(0); //TODO end game better
 	}
 }

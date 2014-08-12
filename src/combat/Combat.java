@@ -119,8 +119,8 @@ public class Combat {
 	
 	public static void chanceFight(Party goodGuys, int curFloor) {
 		Random rand = new Random();
-		PartyFactory factory = new PartyFactory();
 		if(rand.nextInt(4) == 0) {
+			PartyFactory factory = new PartyFactory();
 			Combat curFight = new Combat(goodGuys, factory.makeBadParty(curFloor));
 			curFight.fight();
 		}

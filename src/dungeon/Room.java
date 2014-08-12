@@ -5,8 +5,6 @@
 
 package dungeon;
 
-import java.util.Random;
-
 import Party.Party;
 
 public abstract class Room {
@@ -17,21 +15,11 @@ public abstract class Room {
 	protected boolean wDoor;
 	
 	public Room(double chestMod, Dungeon dungeon) {
-		generateDoors();
+		this.nDoor = true;
+		this.eDoor = true;
+		this.sDoor = true;
+		this.wDoor = true;
 		this.dungeon = dungeon;
-	}
-
-	private void generateDoors() {
-		Random rand = new Random();	
-		
-		if(rand.nextInt(100) < 95) 
-			this.nDoor = true;
-		if(rand.nextInt(100) < 95) 
-			this.eDoor = true;
-		if(rand.nextInt(100) < 95) 
-			this.sDoor = true;
-		if(rand.nextInt(100) < 95) 
-			this.wDoor = true;
 	}
 	
 	@Override

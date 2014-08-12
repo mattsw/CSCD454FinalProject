@@ -22,6 +22,7 @@ public class GameCore implements Observer {
 	private Party goodGuys;
 	private Point playerFloorPos;
 	private int playerFloorNum;
+	private boolean gameOver;
 	
 	public static GameCore getGameCore(Observable dungeon) {
 		if(gameCore == null) {
@@ -47,12 +48,18 @@ public class GameCore implements Observer {
 		this.dungeon = dungeon;
 		this.dungeon.addObserver(this);
 		this.goodGuys = goodGuys;
+		this.gameOver = false;
 	}
 	//entry point
 	public void play() {
 		Dungeon temp = (Dungeon) dungeon;
-		temp.setPlayerVertPos(0); //TODO update curRoom in a better way
+		temp.setPlayerFloor(0);
+		this.curRoom = temp.getCurRoom();
 		curRoom.entered(this.goodGuys, this.playerFloorNum);
+		
+		while(!this.gameOver) {
+			this.curRoom.entered(this.goodGuys, this.playerFloorNum);
+		}
 	}
 	public void update(Observable o, Object arg) {
 		if(o instanceof Dungeon) {
@@ -60,9 +67,11 @@ public class GameCore implements Observer {
 			this.playerFloorNum = curDungeon.getCurPlayerFloor();
 			this.playerFloorPos = curDungeon.getPlayerPos();
 			this.curRoom = curDungeon.getCurRoom(this.playerFloorNum, this.playerFloorPos);
-			curRoom.entered(this.goodGuys, this.playerFloorNum);
+			
 		}
 	}
 	
-	
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = true;
+	}
 }
