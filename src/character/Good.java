@@ -21,12 +21,13 @@ public abstract class Good extends Character {
 	protected double armorMultiplier;
 	protected ArmorSet armor = new ArmorSet();
 	
-	public void addEXP(int EXP){
+	public void addEXP(double EXP){
 		if(this.isAlive()){
 			this.xp = this.xp + EXP;
 			if(this.xp >= this.nextLevel){
 				this.nextLevel = this.nextLevel*1.5;
 				this.levelUp();
+				System.out.println(this.name+" has leveled up!");
 			}
 		}
 	}

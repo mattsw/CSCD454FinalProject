@@ -59,7 +59,8 @@ public class Combat {
 					}
 				}
 			}
-		}		
+		}
+		goodGuys.addEXP(badGuys.getEXP());
 		return goodGuys.surviving();
 	}
 	

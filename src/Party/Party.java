@@ -71,6 +71,6 @@ public abstract class Party implements Iterable<character.Character>{
 	}
 	
 	public abstract void useItem();
-	public abstract void addEXP(int EXP);
+	public abstract void addEXP(double EXP);
 	public abstract double getEXP();
 }

@@ -20,7 +20,7 @@ public abstract class Bad extends Character {
 		return defend.defend(this.speed, this.name);
 	}
 
-	public void addEXP(int EXP){
+	public void addEXP(double EXP){
 		//Not currently Implemented
 	}
 

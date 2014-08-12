@@ -18,7 +18,7 @@ public class GoodParty extends Party{
 		addMembers(choices);
 	}
 	
-	public void addEXP(int EXP){
+	public void addEXP(double EXP){
 		for(character.Character character: this.members){
 			character.addEXP(EXP);
 		}

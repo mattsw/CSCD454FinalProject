@@ -48,7 +48,7 @@ public class BadParty extends Party{
 		//Not currently Implemented
 	}
 	
-	public void addEXP(int EXP){
+	public void addEXP(double EXP){
 		//Not currently Implemented
 	}
 	
