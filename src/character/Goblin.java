@@ -19,7 +19,7 @@ public class Goblin extends Bad {
 		this.health = (15 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
-		this.speed = (7 * this.difMultiplier);
+		this.speed = (14 * this.difMultiplier);
 		this.armorVal = (5 * this.difMultiplier);
 		this.defend = new Evade();
 		this.experienceWorth = (50 * this.difMultiplier);

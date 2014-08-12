@@ -5,10 +5,12 @@
 
 package combat;
 
+import character.Bad;
 import character.Character;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import Party.*;
 
@@ -26,16 +28,100 @@ public class Combat {
 	public boolean fight() {
 		ArrayList<Character> attackers;
 		while(goodGuys.surviving() && badGuys.surviving()) {
-			//tick combat queue then offer actions
-			attackers = this.combatQueue.tick();			
+			
+			attackers = this.combatQueue.tick();
+			
+			for(Character attacker: attackers){
+				if(goodGuys.surviving() && badGuys.surviving()){
+					if(attacker instanceof Bad){
+						boolean needValidTarget = true;
+						Random rand = new Random();
+						int chance = 0;
+						while(needValidTarget){
+							chance = (rand.nextInt(3));
+							if(goodGuys.getCharacter(chance).isAlive()){
+								needValidTarget = false;
+							}
+						}
+						attacker.attack(goodGuys.getCharacter(chance));
+					}
+					else{
+						int combatChoice = getCombatChoice(attacker.getName());
+						if(combatChoice == 1){
+							int targetChoice = getTargetChoice();
+							attacker.attack(badGuys.getCharacter(targetChoice));
+						}
+						else{
+							attacker.combatUseItem();
+						}
+					}
+				}
+			}
 		}		
 		return goodGuys.surviving();
 	}
 	
+	private int getCombatChoice(String name){
+		@SuppressWarnings("resource")
+		Scanner getChoice = new Scanner(System.in);
+		int choice = -1;
+		System.out.println(name+"'s turn!");
+		System.out.println("Your options are:");
+		System.out.println("1. Attack");
+		System.out.println("2. Use Item");
+		
+		while(choice < 1 || choice > 2){
+			System.out.print("Choose the number of your option:");
+			try{
+				choice = getChoice.nextInt();
+				System.out.println();
+			}
+			catch(Exception e){//Bad input
+				getChoice.next();//Clear buffer
+				choice = -1000;//Cause invalid message to re-prompt input
+			}
+			
+			if(choice < 1  || choice > 2){
+				System.out.println("Invalid choice. Try again!");
+			}
+		}
+		return choice;
+	}
+	
+	private int getTargetChoice(){
+		@SuppressWarnings("resource")
+		Scanner getChoice = new Scanner(System.in);
+		int choice = -1;
+		int targetCount = 1;
+		System.out.println("What would you like to attack?");
+		System.out.println("Your options are: ");
+		for(Character target: badGuys){
+			System.out.println(targetCount+". "+target.getName());
+			targetCount++;
+		}
+		while(choice < 1 || choice > targetCount || !(badGuys.getCharacter(choice-1).isAlive())){
+			System.out.print("Choose the number of your option:");
+			try{
+				choice = getChoice.nextInt();
+				System.out.println();
+			}
+			catch(Exception e){//Bad input
+				getChoice.next();//Clear buffer
+				choice = -1000;//Cause invalid message to re-prompt input
+			}
+			
+			if(choice < 1  || choice > targetCount || !(badGuys.getCharacter(choice-1).isAlive())){
+				System.out.println("Invalid choice. Try again!");
+			}
+		}
+		return (choice-1); //For index reference
+	}
+	
 	public static void chanceFight(Party goodGuys, int curFloor) {
 		Random rand = new Random();
+		PartyFactory factory = new PartyFactory();
 		if(rand.nextInt(4) == 0) {
-			Combat curFight = new Combat(goodGuys, new BadParty(curFloor));
+			Combat curFight = new Combat(goodGuys, factory.makeBadParty(curFloor));
 			curFight.fight();
 		}
 	}

@@ -35,7 +35,12 @@ public abstract class Character {
 	}
 	
 	public String getName(){
-		return this.name;
+		if(this.isAlive()){
+			return this.name;
+		}
+		else{
+			return this.name+"(Dead)";
+		}
 	}
 	
 	public double getExperienceWorth() {
@@ -47,6 +52,7 @@ public abstract class Character {
 			this.curHealth = health;
 		} else {
 			this.curHealth = 0;
+			System.out.println(this.name+" has died!");
 		}
 	}
 	

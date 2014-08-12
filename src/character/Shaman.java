@@ -15,7 +15,7 @@ public class Shaman extends Good {
 		this.name = name;
 		this.health = 30;
 		this.curHealth = this.health;
-		this.attackPwr = 12;
+		this.attackPwr = 15;
 		this.speed = 6;
 		this.level = 1;
 		this.armorMultiplier = 0.6;
@@ -27,7 +27,7 @@ public class Shaman extends Good {
 	public void levelUp(){
 		this.health = this.health + 5;
 		this.curHealth = this.health;
-		this.attackPwr = this.attackPwr + 1.5;
+		this.attackPwr = this.attackPwr + 2;
 		this.speed = this.speed + 1;
 		this.level = level + 1;
 	}

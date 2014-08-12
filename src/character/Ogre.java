@@ -19,7 +19,7 @@ public class Ogre extends Bad {
 		this.health = (40 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (10 * this.difMultiplier);
-		this.speed = (4 * this.difMultiplier);
+		this.speed = (8 * this.difMultiplier);
 		this.armorVal = (10 * this.difMultiplier);
 		this.defend = new Block();
 		this.experienceWorth = (60 * this.difMultiplier);

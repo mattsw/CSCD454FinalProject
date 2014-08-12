@@ -19,7 +19,6 @@ public class GameCore implements Observer {
 	private static GameCore gameCore;
 	private Observable dungeon;
 	private Room curRoom;
-	private PartyFactory partyFactory;
 	private Party goodGuys;
 	private Point playerFloorPos;
 	private int playerFloorNum;
@@ -28,7 +27,7 @@ public class GameCore implements Observer {
 		if(gameCore == null) {
 			PartyFactory partyFactory = new PartyFactory();
 			Party goodGuys = partyFactory.makeGoodParty();
-			gameCore = new GameCore(dungeon, goodGuys, partyFactory);
+			gameCore = new GameCore(dungeon, goodGuys);
 		} 
 		return gameCore;
 	}
@@ -39,16 +38,15 @@ public class GameCore implements Observer {
 			Dungeon dungeon = dunCreator.construct(1);
 			PartyFactory partyFactory = new PartyFactory();
 			Party goodGuys = partyFactory.makeGoodParty();
-			gameCore = new GameCore(dungeon, goodGuys, partyFactory);
+			gameCore = new GameCore(dungeon, goodGuys);
 		} 
 		return gameCore;
 	}
 	
-	private GameCore(Observable dungeon, Party goodGuys, PartyFactory partyFactory) {
+	private GameCore(Observable dungeon, Party goodGuys) {
 		this.dungeon = dungeon;
 		this.dungeon.addObserver(this);
 		this.goodGuys = goodGuys;
-		this.partyFactory = partyFactory;
 	}
 	//entry point
 	public void play() {

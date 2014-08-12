@@ -8,8 +8,6 @@ package main;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import Party.Party;
-import Party.PartyFactory;
 import dungeon.DunBuilderDirector;
 import dungeon.Dungeon;
 

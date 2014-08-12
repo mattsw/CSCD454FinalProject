@@ -17,7 +17,7 @@ public class Warrior extends Good {
 		this.name = name;
 		this.health = 60;
 		this.curHealth = this.health;
-		this.attackPwr = 15;
+		this.attackPwr = 20;
 		this.speed = 6;
 		this.level = 1;
 		this.armorMultiplier = 0.9;
@@ -29,7 +29,7 @@ public class Warrior extends Good {
 	public void levelUp(){
 		this.health = this.health + 7;
 		this.curHealth = this.health;
-		this.attackPwr = this.attackPwr +2;
+		this.attackPwr = this.attackPwr +3;
 		this.speed = this.speed +  1;
 		this.level = level + 1;
 	}

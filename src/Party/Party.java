@@ -62,6 +62,9 @@ public abstract class Party implements Iterable<character.Character>{
 		return false;
 	}
 	
+	public character.Character getCharacter(int index){
+		return members.get(index);
+	}
 	
 	public void addItem(Item toAdd){
 		inventory.addItem(toAdd);

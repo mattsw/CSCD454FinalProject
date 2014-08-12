@@ -89,7 +89,7 @@ public class PartyInventory {
 	}
 
 	public void useConsumable(character.Character target){
-		if(armors.isEmpty()){
+		if(consumables.isEmpty()){
 			System.out.println("You have nothing to consume!");
 		}
 		else{

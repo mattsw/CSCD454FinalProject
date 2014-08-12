@@ -1,8 +1,6 @@
 package combat;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import Party.Party;
 import character.Character;
 
@@ -11,18 +9,18 @@ public class CombatQueue {
 	private ArrayList<Character> attackingChars;
 	
 	public CombatQueue(Party goodParty, Party badParty) {
+		this.combatCharacters = new ArrayList<SpeedCountWrapper>();
+		this.attackingChars = new ArrayList<Character>();
 		fillChars(goodParty, badParty);
 	}
 	//helper for constructor
 	private void fillChars(Party goodParty, Party badParty) {
-		Iterator<Character> goodIterator = goodParty.iterator();
-		Iterator<Character> badIterator = badParty.iterator();
 		
-		while(goodIterator.hasNext()) {
-			this.combatCharacters.add(new SpeedCountWrapper(goodIterator.next()));
+		for(Character cur: goodParty){
+			this.combatCharacters.add(new SpeedCountWrapper(cur));
 		}
-		while(badIterator.hasNext()) {
-			combatCharacters.add(new SpeedCountWrapper(badIterator.next()));
+		for(Character cur: badParty){
+			this.combatCharacters.add(new SpeedCountWrapper(cur));
 		}
 	}
 	
@@ -32,8 +30,10 @@ public class CombatQueue {
 	
 	public ArrayList<Character> tick() {
 		this.attackingChars.clear();
-		for(int i = 0; i < this.attackingChars.size(); i++) {
-			this.combatCharacters.get(i).incrementSpeedCount();
+		while(attackingChars.isEmpty()){
+			for(int i = 0; i < this.combatCharacters.size(); i++) {
+				this.combatCharacters.get(i).incrementSpeedCount();
+			}
 		}
 		return this.attackingChars;
 	}
@@ -50,7 +50,9 @@ public class CombatQueue {
 			this.speedCount += this.character.getSpeed();
 			if(this.speedCount > 100) {
 				this.speedCount = speedCount % 100;
-				CombatQueue.this.addAttackingChar(this.character);
+				if(this.character.isAlive()){
+					addAttackingChar(this.character);
+				}
 			}
 		}
 	}

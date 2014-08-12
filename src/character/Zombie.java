@@ -17,7 +17,7 @@ public class Zombie extends Bad {
 		this.health = (60 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
-		this.speed = (3 * this.difMultiplier);
+		this.speed = (8 * this.difMultiplier);
 		this.armorVal = (3 * this.difMultiplier);
 		this.defend = new Block();
 		this.experienceWorth = (45 * this.difMultiplier);

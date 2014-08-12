@@ -47,7 +47,7 @@ public class NormalRoom extends Room {
 
 	@Override
 	public void entered(Party goodParty, int curFloor) {
-		//Combat.chanceFight(goodParty, curFloor);
+		Combat.chanceFight(goodParty, curFloor);
 		System.out.println(this);
 		System.out.println("Enter your choice, or type help.\n");
 		Command command = new Command(this);

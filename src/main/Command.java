@@ -7,6 +7,7 @@ import Inventory.RandomItemFactory;
 import Party.PartyInventory;
 import dungeon.NormalRoom;
 import dungeon.DVineRoom;
+import dungeon.TreasureChest;
 import dungeon.UVineRoom;
 import dungeon.StartRoom;
 import dungeon.FinalBossRoom;
@@ -28,6 +29,7 @@ public class Command {
 	
 	private String getCommand() {
 		String command = "";
+		@SuppressWarnings("resource")
 		Scanner cin = new Scanner(System.in);
 		
 		while(true) {
@@ -108,8 +110,13 @@ public class Command {
 	}
 	
 	private void openChest() {
-		RandomItemFactory factory = new RandomItemFactory();
-		Item item = factory.generateItem();
-		inventory.addItem(item);
+		if(curRoom instanceof NormalRoom){
+			if(((NormalRoom)curRoom).hasChest()){
+				TreasureChest chest = new TreasureChest();
+				chest.printItem();
+				Item item = chest.getItem();
+				inventory.addItem(item);
+			}
+		}
 	}
 }

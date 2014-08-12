@@ -15,7 +15,7 @@ public class Paladin extends Good {
 		this.name = name;
 		this.health = 50;
 		this.curHealth = this.health;
-		this.attackPwr = 10;
+		this.attackPwr = 15;
 		this.speed = 5;
 		this.level = 1;
 		this.armorMultiplier = 1;
@@ -27,7 +27,7 @@ public class Paladin extends Good {
 	public void levelUp(){
 		this.health = this.health + 8;
 		this.curHealth = this.health;
-		this.attackPwr = this.attackPwr +1;
+		this.attackPwr = this.attackPwr +3;
 		this.speed = this.speed +  1;
 		this.level = level + 1;
 	}
