@@ -1,5 +1,6 @@
 package Inventory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,6 +19,9 @@ public class RandomItemFactory implements ItemFactory {
 		this.equipmentFactory = new EquipmentFactory();
 		this.consumableFactory = new ConsumableFactory();
 		this.randomSeed = new Random();
+		this.sets = new ArrayList<String>();
+		this.consumables = new ArrayList<String>();
+		this.armors = new ArrayList<String>();
 		//TODO there is probably a better way of doing this but for now . . . -[mw]
 		populateSets(this.sets);
 		populateArmors(this.armors);
@@ -27,10 +31,10 @@ public class RandomItemFactory implements ItemFactory {
 	
 	public Item generateItem(String... properties) {
 		if(randomSeed.nextInt() % 2 == 0){
-			return consumableFactory.generateItem(consumables.get(randomSeed.nextInt() % consumables.size()));
+			return consumableFactory.generateItem(consumables.get(Math.abs(randomSeed.nextInt() % consumables.size())));
 		} else {			
-			return equipmentFactory.generateItem(armors.get(randomSeed.nextInt() % armors.size()), 
-					sets.get(randomSeed.nextInt() % sets.size()));
+			return equipmentFactory.generateItem(armors.get(Math.abs(randomSeed.nextInt() % armors.size())), 
+					sets.get(Math.abs(randomSeed.nextInt() % sets.size())));
 		}
 		
 	}
