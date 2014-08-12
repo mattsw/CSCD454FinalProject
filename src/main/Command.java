@@ -3,14 +3,11 @@ package main;
 import java.util.Scanner;
 
 import Inventory.Item;
-import Inventory.RandomItemFactory;
 import Party.PartyInventory;
 import dungeon.NormalRoom;
 import dungeon.DVineRoom;
 import dungeon.TreasureChest;
 import dungeon.UVineRoom;
-import dungeon.StartRoom;
-import dungeon.FinalBossRoom;
 import dungeon.Room;
 import dungeon.Dungeon;
 
@@ -82,6 +79,9 @@ public class Command {
 					break;
 				}
 			}
+			if(commandTest.equalsIgnoreCase("print")) {
+				break;
+			}
 			System.out.println("You must enter a valid command.  Enter help if needed.\n");
 		}
 		return commandTest;
@@ -101,18 +101,36 @@ public class Command {
 		} else if (command.equalsIgnoreCase("use")) {
 			this.inventory.getParty().useItem();
 		} else if(command.equalsIgnoreCase("exit")) {
-			System.exit(0); //TODO close program nicer
+			GameCore gameCore = GameCore.getGameCore();
+			gameCore.endGameExit();
 		} else if(command.equalsIgnoreCase("open")) {
 			openChest();
-		} if(command.equalsIgnoreCase("down")) {
+		} else if(command.equalsIgnoreCase("down")) {
 			this.curDungeon.setPlayerVertPos(this.curDungeon.getCurPlayerFloor() - 1);
-		} if(command.equalsIgnoreCase("up")) {
+		} else if(command.equalsIgnoreCase("up")) {
 			this.curDungeon.setPlayerVertPos(this.curDungeon.getCurPlayerFloor() + 1);
+		} else {  //command = print
+			System.out.println(this.curRoom.toString());
+			getCommand();
 		}
 	}
 	
 	private void printHelp() {
-		System.out.println("Hey im helpful!");  //TODO print a help menu
+		System.out.println("\nThe following are commands you can use based on the condition of the room.");
+		System.out.println("\nMovement commands:");
+		System.out.println("     N - move north");
+		System.out.println("     E - move east");
+		System.out.println("     S - move south");
+		System.out.println("     W - move west");
+		System.out.println("     U - move up");
+		System.out.println("     D - move down");
+		System.out.println("\nOther commands:");
+		System.out.println("     Open - open a chest");
+		System.out.println("     Use - use an item");
+		System.out.println("     Exit - exit the game");
+		System.out.println("     Print - Reprint the room message");
+		System.out.println("     Help - display this menu\n");
+		this.curRoom.toString();
 		getCommand();
 	}
 	
@@ -123,6 +141,7 @@ public class Command {
 				chest.printItem();
 				Item item = chest.getItem();
 				inventory.addItem(item);
+				((NormalRoom) curRoom).clearChest();
 			}
 		}
 	}

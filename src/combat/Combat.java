@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import main.GameCore;
+
 import Party.*;
 
 public class Combat {
@@ -120,9 +122,15 @@ public class Combat {
 	public static void chanceFight(Party goodGuys, int curFloor) {
 		Random rand = new Random();
 		if(rand.nextInt(4) == 0) {
+			System.out.println("You are under attack!  Prepare for combat!");
 			PartyFactory factory = new PartyFactory();
 			Combat curFight = new Combat(goodGuys, factory.makeBadParty(curFloor));
-			curFight.fight();
+			if(curFight.fight()) {
+				System.out.println("You have defeated your enemies!");
+			} else {
+				GameCore gameCore = GameCore.getGameCore();
+				gameCore.endGameKilled();
+			}
 		}
 	}
 }

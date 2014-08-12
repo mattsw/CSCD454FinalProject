@@ -1,18 +1,24 @@
 package dungeon;
 
 import main.Command;
-import combat.Combat;
 import Party.Party;
 
 public class StartRoom extends Room {
+	private boolean enteredAlready;
+	
 	public StartRoom(double chestMod, Dungeon dungeon) {
 		super(chestMod, dungeon);
+		enteredAlready = false;
 	}
 	
 	@Override
 	public String toString() {
-		String message = "You arrive in a complex cave network.  You feel" +
+		String message = "";
+		if(!enteredAlready) {
+			message = "You arrive in a complex cave network.  You feel" +
 				" an unexplainable urge to find the master of these caves and slay it!\n";
+			this.enteredAlready = true;
+		}
 		message += super.toString();
 		
 		return message;

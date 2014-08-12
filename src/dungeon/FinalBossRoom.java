@@ -1,9 +1,9 @@
 package dungeon;
 
-import main.Command;
-import main.GameCore;
 import combat.Combat;
+import main.GameCore;
 import Party.Party;
+import Party.PartyFactory;
 
 public class FinalBossRoom extends Room {
 	
@@ -23,9 +23,14 @@ public class FinalBossRoom extends Room {
 	@Override
 	public void entered(Party goodParty, int curFloor) {
 		System.out.println(this);
-		//TODO fight final boss.  game ends after boss is defeated
-		
 		GameCore gameCore = GameCore.getGameCore();
-		System.exit(0); //TODO end game better
+		PartyFactory pFactory = new PartyFactory();
+		Party bossParty = pFactory.makeBossParty(this.dungeon.getCurPlayerFloor(), "dragon");
+		Combat curFight = new Combat(goodParty, bossParty);
+		if(curFight.fight()) {
+			gameCore.endGameVictory();
+		} else {
+			gameCore.endGameKilled();
+		}
 	}
 }

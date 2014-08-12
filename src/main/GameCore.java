@@ -71,7 +71,22 @@ public class GameCore implements Observer {
 		}
 	}
 	
-	public void setGameOver(boolean gameOver) {
+	private void setGameOver(boolean gameOver) {
 		this.gameOver = true;
+	}
+	
+	public void endGameVictory() {
+		System.out.println("You have claimed victory over your enemies and laid waste to all in your path!");
+		setGameOver(true);
+	}
+	
+	public void endGameKilled() {
+		System.out.println("You have falled in battle.  Your adventure is at an end and no one will remember your name.");
+		setGameOver(true);
+	}
+	
+	public void endGameExit() {
+		System.out.println("Quitting?  Coward!");
+		setGameOver(true);
 	}
 }

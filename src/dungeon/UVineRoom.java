@@ -1,9 +1,6 @@
 package dungeon;
 
 import main.Command;
-
-import combat.Combat;
-
 import Party.Party;
 
 public class UVineRoom extends Room {
