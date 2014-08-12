@@ -15,7 +15,7 @@ public class Goblin extends Bad {
 
 	public Goblin(int floorMod){
 		this.name = "Goblin";
-		this.difMultiplier = (0.5 * floorMod);
+		this.difMultiplier = (0.5 * (floorMod+1));
 		this.health = (15 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);

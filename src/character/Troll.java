@@ -15,7 +15,7 @@ public class Troll extends Bad {
 
 	public Troll(int floorMod){
 		this.name = "Troll";
-		this.difMultiplier = (0.5 * floorMod);
+		this.difMultiplier = (0.5 * (floorMod+1));
 		this.health = (25 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);

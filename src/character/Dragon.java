@@ -16,7 +16,7 @@ public class Dragon extends Bad {
 	
 	public Dragon(int floorMod){
 		this.name = "Dragon";
-		this.difMultiplier = floorMod;
+		this.difMultiplier = (floorMod+1);
 		this.health = (150 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (30 * this.difMultiplier);

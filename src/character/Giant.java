@@ -17,7 +17,7 @@ public class Giant extends Bad {
 	
 	public Giant(int floorMod){
 		this.name = "Giant";
-		this.difMultiplier = floorMod;
+		this.difMultiplier = (floorMod+1);
 		this.health = (120 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (25 * this.difMultiplier);

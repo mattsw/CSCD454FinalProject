@@ -15,7 +15,7 @@ public class Ogre extends Bad {
 	
 	public Ogre(int floorMod){
 		this.name = "Ogre";
-		this.difMultiplier = (0.5 * floorMod);
+		this.difMultiplier = (0.5 * (floorMod+1));
 		this.health = (40 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (10 * this.difMultiplier);
