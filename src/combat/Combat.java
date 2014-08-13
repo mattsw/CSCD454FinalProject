@@ -54,6 +54,7 @@ public class Combat {
 							attacker.attack(badGuys.getCharacter(targetChoice));
 						}
 						else if(combatChoice == -42){
+							System.out.println("Your party members have all inexplicably slipped and fallen on their weapons...");
 							return false;
 						}
 						else if(combatChoice == 42){
