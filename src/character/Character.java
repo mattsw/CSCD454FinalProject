@@ -52,7 +52,6 @@ public abstract class Character {
 			this.curHealth = health;
 		} else {
 			this.curHealth = 0;
-			System.out.println(this.name+" has died!");
 		}
 	}
 	
@@ -95,8 +94,9 @@ public abstract class Character {
 			
 			if(!hasDefended){
 				if(damage > 0){
-					target.setCurHealth(target.getCurHealth() - damage);
 					System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
+					target.setCurHealth(target.getCurHealth() - damage);
+					System.out.println(target.getName()+" remaining health: "+target.getCurHealth());
 				}
 				else{
 					System.out.println(target.name+"'s armor protects him from damage");

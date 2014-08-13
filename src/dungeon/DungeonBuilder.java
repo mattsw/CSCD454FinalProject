@@ -120,27 +120,27 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 		Random rand = new Random();
 		for(int x = 0; x < this.floorSize; x++) {
 			for(int y = 0; y < this.floorSize; y++) {
-				if(rand.nextInt(100) > 95) {
+				if(rand.nextInt(100) > 98) {
 					floorArray[x][y].setNDoor(false);
 					if(y > 0) {
 						floorArray[x][y - 1].setSDoor(false);
 					}
 				}
-				if(rand.nextInt(100) > 95) {
+				if(rand.nextInt(100) > 98) {
 					floorArray[x][y].setEDoor(false);
 				
 					if(x < this.floorSize - 2) {
 						floorArray[x + 1][y].setWDoor(false);
 					}
 				}
-				if(rand.nextInt(100) > 95) {
+				if(rand.nextInt(100) > 98) {
 					floorArray[x][y].setSDoor(false);
 					
 					if(y < this.floorSize - 2) {
 						floorArray[x][y + 1].setNDoor(false);
 					}
 				}
-				if(rand.nextInt(100) > 95) {
+				if(rand.nextInt(100) > 98) {
 					floorArray[x][y].setWDoor(false);
 					
 					if(x > 0) {
@@ -229,6 +229,7 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 				end = this.dungeon.getLastBossPos();
 			}
 			if(!floorIsValid(this.dungeon.getFloorArray(i), start, end)) {
+				System.out.println("Replacing floor");
 				this.dungeon.replaceFloor(this.floorSize, this.chestMod, i);
 				closeRFloorDoors(this.dungeon.getFloorArray(i));
 				closeOFloorDoors(this.dungeon.getFloorArray(i));
@@ -249,7 +250,7 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 	
 	private boolean recursiveSearch(Room[][] curFloor, boolean[][] visited, int curX, int curY, int endX, int endY) {
 		visited[curX][curY] = true;
-		
+		//System.out.println("entering recursive");
 		if(curX == endX && curY == endY) {
 			return true;
 		}
