@@ -110,12 +110,11 @@ public class Command {
 		} else if(command.equalsIgnoreCase("open")) {
 			openChest();
 		} else if(command.equalsIgnoreCase("down")) {
-			this.curDungeon.setPlayerVertPos(this.curDungeon.getCurPlayerFloor() - 1);
+			this.curDungeon.movePlayerDown(this.curDungeon.getCurPlayerFloor() - 1);
 		} else if(command.equalsIgnoreCase("up")) {
-			this.curDungeon.setPlayerVertPos(this.curDungeon.getCurPlayerFloor() + 1);
+			this.curDungeon.movePlayerUp(this.curDungeon.getCurPlayerFloor() + 1);
 		} else {  //command = print
 			System.out.println(this.curRoom.toString());
-			getCommand();
 		}
 	}
 	
@@ -135,6 +134,7 @@ public class Command {
 		System.out.println("     Print - Reprint the room message");
 		System.out.println("     Help - display this menu\n");
 		System.out.println(this.curRoom.toString());
+		getCommand();
 	}
 	
 	private void openChest() {

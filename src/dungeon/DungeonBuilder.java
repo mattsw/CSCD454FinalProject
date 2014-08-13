@@ -47,13 +47,13 @@ public abstract class DungeonBuilder implements DungeonBuilderInterface {
 			int uVineX = makeUVineX();
 			int uVineY = makeUVineY();
 			
-			tempRooms[makeUVineX()][makeUVineY()] = new UVineRoom(this.chestMod, dungeon);
+			tempRooms[uVineX][uVineY] = new UVineRoom(this.chestMod, dungeon);
 			temp.setUVine(new Point(uVineX, uVineY));
 		} else { //top floor
 			int dVineX = makeDVineX();
 			int dVineY = makeDVineY();
 			
-			tempRooms[makeDVineX()][makeDVineY()] = new DVineRoom(this.chestMod, dungeon);
+			tempRooms[dVineX][dVineY] = new DVineRoom(this.chestMod, dungeon);
 			temp.setDVine(new Point(dVineX, dVineY));
 		}
 	}
