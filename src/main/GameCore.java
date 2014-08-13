@@ -57,9 +57,9 @@ public class GameCore implements Observer {
 		this.curRoom = temp.getCurRoom();
 		curRoom.entered(this.goodGuys, this.playerFloorNum);
 		
-		while(!this.gameOver) {
+		do {
 			this.curRoom.entered(this.goodGuys, this.playerFloorNum);
-		}
+		} while(!this.gameOver);
 	}
 	public void update(Observable o, Object arg) {
 		if(o instanceof Dungeon) {

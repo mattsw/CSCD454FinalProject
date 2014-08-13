@@ -96,7 +96,7 @@ public abstract class Character {
 				if(damage > 0){
 					System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
 					target.setCurHealth(target.getCurHealth() - damage);
-					System.out.println(target.getName()+" remaining health: "+target.getCurHealth());
+					System.out.println(target.getName()+" remaining health: "+String.format("%.2f", target.getCurHealth()));
 				}
 				else{
 					System.out.println(target.name+"'s armor protects him from damage");

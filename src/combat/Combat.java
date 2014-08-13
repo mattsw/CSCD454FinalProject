@@ -53,6 +53,9 @@ public class Combat {
 							int targetChoice = getTargetChoice();
 							attacker.attack(badGuys.getCharacter(targetChoice));
 						}
+						else if(combatChoice == -42){
+							return false;
+						}
 						else if(combatChoice == 42){
 							goodGuys.addEXP(badGuys.getEXP());
 							return goodGuys.surviving();
@@ -83,6 +86,9 @@ public class Combat {
 				choice = getChoice.nextInt();
 				System.out.println();
 				if(choice == 42){
+					return choice;
+				}
+				if(choice == -42){
 					return choice;
 				}
 			}
