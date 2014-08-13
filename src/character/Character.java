@@ -86,9 +86,14 @@ public abstract class Character {
 	public void attack(character.Character target){
 		if(this.isAlive()){
 			setAttackBehavior();
-			boolean hasDefended = false;
-			double damage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()))- (target.getDefenceRating());
-			if(damage > 0){
+			boolean hasDefended = true;
+			double unmodifiedDamage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()));
+			double damage = unmodifiedDamage - (target.getDefenceRating());
+			
+			if(unmodifiedDamage <= target.getDefenceRating() && unmodifiedDamage > 0){
+				System.out.println(target.name+"'s armor protects him from damage");
+			}
+			else if(damage > 0){
 				hasDefended = target.defend();
 			}
 			
@@ -97,9 +102,6 @@ public abstract class Character {
 					System.out.println("The attack is successful, dealing "+String.format( "%.2f", damage)+" damage!");
 					target.setCurHealth(target.getCurHealth() - damage);
 					System.out.println(target.getName()+" remaining health: "+String.format("%.2f", target.getCurHealth()));
-				}
-				else{
-					System.out.println(target.name+"'s armor protects him from damage");
 				}
 			}
 		}
