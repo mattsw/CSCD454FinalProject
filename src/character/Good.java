@@ -16,17 +16,17 @@ import Party.PartyInventory;
 public abstract class Good extends Character {
 	protected PartyInventory inventory = PartyInventory.getInventory();
 	protected double xp;
-	protected double nextLevel;
 	protected int level;
 	protected double armorMultiplier;
 	protected ArmorSet armor = new ArmorSet();
+	protected double nextLevel;
 	
 	public void addEXP(double EXP){
 		if(this.isAlive()){
 			this.xp = this.xp + EXP;
 			if(this.xp >= this.nextLevel){
-				this.nextLevel = this.nextLevel*1.5;
 				this.levelUp();
+				this.nextLevel = this.nextLevel*3;
 				System.out.println(this.name+" has leveled up!");
 			}
 		}

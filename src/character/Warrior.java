@@ -21,8 +21,8 @@ public class Warrior extends Good {
 		this.speed = 6;
 		this.level = 1;
 		this.armorMultiplier = 0.9;
-		this.nextLevel = 500;
 		this.xp = 0;
+		this.nextLevel = 200;
 		equipStartingArmor();
 	}
 	

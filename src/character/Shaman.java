@@ -19,8 +19,8 @@ public class Shaman extends Good {
 		this.speed = 6;
 		this.level = 1;
 		this.armorMultiplier = 0.6;
-		this.nextLevel = 500;
 		this.xp = 0;
+		this.nextLevel = 200;
 		equipStartingArmor();
 	}
 	

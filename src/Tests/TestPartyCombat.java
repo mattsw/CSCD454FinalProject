@@ -10,7 +10,7 @@ public class TestPartyCombat {
 	public static void main(String[] args) {
 		PartyFactory factory = new PartyFactory();
 		Party goodGuys = factory.makeGoodParty();
-		Party badGuys = factory.makeBadParty(1);
+		Party badGuys = factory.makeBossParty(1, "dragon");
 		
 		Combat combat = new Combat(goodGuys,badGuys);
 		boolean win = combat.fight();

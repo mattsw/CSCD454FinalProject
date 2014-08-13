@@ -6,13 +6,14 @@
 package Party;
 
 import java.util.ArrayList;
+
 import character.*;
+import character.Character;
 
 public class BossParty extends Party{
 
-	protected ArrayList<Bad> members;
-	
 	public BossParty(int floorMod, String type){
+		members = new ArrayList<Character>();
 		this.size = 1;
 		type = type.toLowerCase();
 		if(type.compareTo("giant") == 0){

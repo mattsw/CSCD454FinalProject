@@ -33,22 +33,22 @@ public class Command {
 			commandTest = cin.nextLine();
 			
 			if(curRoom.hasEDoor()) {
-				if (commandTest.equalsIgnoreCase("e")) {
+				if (commandTest.equalsIgnoreCase("e") || commandTest.equalsIgnoreCase("east")) {
 					break;
 				}
 			} 
 			if(curRoom.hasNDoor()) {
-				if (commandTest.equalsIgnoreCase("n")) {
+				if (commandTest.equalsIgnoreCase("n") || commandTest.equalsIgnoreCase("north")) {
 					break;
 				}
 			} 
 			if(curRoom.hasSDoor()) {
-				if (commandTest.equalsIgnoreCase("s")) {
+				if (commandTest.equalsIgnoreCase("s") || commandTest.equalsIgnoreCase("south")) {
 					break;
 				}
 			} 
 			if(curRoom.hasWDoor()) {
-				if (commandTest.equalsIgnoreCase("w")) {
+				if (commandTest.equalsIgnoreCase("w") || commandTest.equalsIgnoreCase("west")) {
 					break;
 				}
 			} 
@@ -98,11 +98,15 @@ public class Command {
 			this.curDungeon.setPlayerHorizPos(this.curDungeon.getPlayerPos().getX() - 1, this.curDungeon.getPlayerPos().getY());
 		} else if (command.equalsIgnoreCase("help")) {
 			printHelp();
+			getCommand();
 		} else if (command.equalsIgnoreCase("use")) {
 			this.inventory.getParty().useItem();
+			getCommand();
 		} else if(command.equalsIgnoreCase("exit")) {
 			GameCore gameCore = GameCore.getGameCore();
 			gameCore.endGameExit();
+			new Scanner(System.in).nextLine(); //pause the game before it just exits.
+			System.exit(0);
 		} else if(command.equalsIgnoreCase("open")) {
 			openChest();
 		} else if(command.equalsIgnoreCase("down")) {
@@ -130,8 +134,7 @@ public class Command {
 		System.out.println("     Exit - exit the game");
 		System.out.println("     Print - Reprint the room message");
 		System.out.println("     Help - display this menu\n");
-		this.curRoom.toString();
-		getCommand();
+		System.out.println(this.curRoom.toString());
 	}
 	
 	private void openChest() {

@@ -19,8 +19,8 @@ public class Thief extends Good {
 		this.speed = 10;
 		this.level = 1;
 		this.armorMultiplier = 0.5;
-		this.nextLevel = 500;
 		this.xp = 0;
+		this.nextLevel = 200;
 		equipStartingArmor();
 	}
 	

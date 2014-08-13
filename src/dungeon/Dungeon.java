@@ -23,7 +23,7 @@ public class Dungeon extends Observable {
 	
 	public void setPlayerVertPos(int z) {
 		this.curPlayerFloor = z;
-		playerPosChanged();
+		setPlayerHorizPos(this.map[z].getDVine().getX(), this.map[z].getDVine().getY());
 	}
 	
 	private void playerPosChanged() {

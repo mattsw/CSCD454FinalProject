@@ -15,9 +15,6 @@ public abstract class Party implements Iterable<character.Character>{
 	protected ArrayList<character.Character> members;
 	protected PartyInventory inventory; 
 	
-	ArrayList<character.Character> getParty(){
-		return members;
-	}
 	
 	public Iterator<character.Character> iterator(){
 		return new PartyIterator(this.members, this.size);
@@ -39,12 +36,9 @@ public abstract class Party implements Iterable<character.Character>{
 		}
 		
 		public character.Character next(){
-			if(hasNext()){
-				return pMembers.get(cur++);
-			}
-			else{
-				return null;
-			}
+			return hasNext() 
+					? pMembers.get(cur++) 
+					: null;
 		}
 		
 		public void remove(){

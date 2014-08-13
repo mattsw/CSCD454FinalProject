@@ -19,8 +19,8 @@ public class Paladin extends Good {
 		this.speed = 5;
 		this.level = 1;
 		this.armorMultiplier = 1;
-		this.nextLevel = 500;
 		this.xp = 0;
+		this.nextLevel = 200;
 		equipStartingArmor();
 	}
 	

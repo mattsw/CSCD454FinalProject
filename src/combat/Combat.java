@@ -133,7 +133,7 @@ public class Combat {
 		return (choice-1); //For index reference
 	}
 	
-	public static void chanceFight(Party goodGuys, int curFloor) {
+	public static boolean chanceFight(Party goodGuys, int curFloor) {
 		Random rand = new Random();
 		if(rand.nextInt(4) == 0) {
 			System.out.println("You are under attack!  Prepare for combat!");
@@ -141,10 +141,13 @@ public class Combat {
 			Combat curFight = new Combat(goodGuys, factory.makeBadParty(curFloor));
 			if(curFight.fight()) {
 				System.out.println("You have defeated your enemies!");
+				return true;
 			} else {
 				GameCore gameCore = GameCore.getGameCore();
 				gameCore.endGameKilled();
+				return false;
 			}
 		}
+		return true;
 	}
 }

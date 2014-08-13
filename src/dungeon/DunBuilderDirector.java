@@ -18,7 +18,7 @@ public class DunBuilderDirector {
 		dungeonBuilder.closeDoors();
 		dungeonBuilder.verifyDungeon();
 		Dungeon dungeon = dungeonBuilder.getDungeon();
-		dungeon.setPlayerVertPos(0); //do this to update gameCore
+		dungeon.setPlayerFloor(0);
 		
 		return dungeon;
 	}
