@@ -86,6 +86,7 @@ public class PartyInventory {
 						choice = choice - 1;//For list index retrieval
 						target.equipArmorPiece(armors.get(choice));
 						this.armors.remove(choice);
+						this.armorCount--;
 						this.itemCount--;
 					}
 				}
@@ -128,6 +129,7 @@ public class PartyInventory {
 							target.setCurHealth(target.getHealth());
 						}
 						this.consumables.remove(choice);
+						this.consumableCount--;
 						this.itemCount--;
 					}
 				}
