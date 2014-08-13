@@ -16,14 +16,14 @@ public class Dragon extends Bad {
 	
 	public Dragon(int floorMod){
 		this.name = "Dragon";
-		this.difMultiplier = (floorMod+1);
+		this.difMultiplier = (0.5 * (floorMod+1));
 		this.health = (150 * this.difMultiplier);
 		this.curHealth = this.health;
-		this.attackPwr = (30 * this.difMultiplier);
-		this.speed = (15 * this.difMultiplier);
-		this.armorVal = (15 * this.difMultiplier);
+		this.attackPwr = (15 * this.difMultiplier);
+		this.speed = (12 * this.difMultiplier);
+		this.armorVal = (10);
 		this.defend = new Evade();
-		this.experienceWorth = (300 * this.difMultiplier);
+		this.experienceWorth = (500 * this.difMultiplier);
 	}
 	
 	public void setAttackBehavior(){

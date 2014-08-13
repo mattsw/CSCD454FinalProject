@@ -20,7 +20,7 @@ public class Troll extends Bad {
 		this.curHealth = this.health;
 		this.attackPwr = (8 * this.difMultiplier);
 		this.speed = (12 * this.difMultiplier);
-		this.armorVal = (8 * this.difMultiplier);
+		this.armorVal = (5);
 		this.defend = new Evade();
 		this.experienceWorth = (70 * this.difMultiplier);
 	}

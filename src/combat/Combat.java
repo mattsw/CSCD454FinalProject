@@ -115,7 +115,7 @@ public class Combat {
 			System.out.println(targetCount+". "+target.getName());
 			targetCount++;
 		}
-		while(choice < 1 || choice > targetCount || !(badGuys.getCharacter(choice-1).isAlive())){
+		while(choice < 1 || choice > targetCount-1 || !(badGuys.getCharacter(choice-1).isAlive())){
 			System.out.print("Choose the number of your option:");
 			try{
 				choice = getChoice.nextInt();
@@ -126,7 +126,7 @@ public class Combat {
 				choice = -1000;//Cause invalid message to re-prompt input
 			}
 			
-			if(choice < 1  || choice > targetCount || !(badGuys.getCharacter(choice-1).isAlive())){
+			if(choice < 1  || choice > targetCount-1 || !(badGuys.getCharacter(choice-1).isAlive())){
 				System.out.println("Invalid choice. Try again!");
 			}
 		}

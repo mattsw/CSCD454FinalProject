@@ -16,11 +16,11 @@ public class Ogre extends Bad {
 	public Ogre(int floorMod){
 		this.name = "Ogre";
 		this.difMultiplier = (0.5 * (floorMod+1));
-		this.health = (30 * this.difMultiplier);
+		this.health = (35 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (10 * this.difMultiplier);
 		this.speed = (8 * this.difMultiplier);
-		this.armorVal = (10 * this.difMultiplier);
+		this.armorVal = (6);
 		this.defend = new Block();
 		this.experienceWorth = (100 * this.difMultiplier);
 	}

@@ -20,7 +20,7 @@ public class Slime extends Bad {
 		this.curHealth = this.health;
 		this.attackPwr = (12 * this.difMultiplier);
 		this.speed = (10 * this.difMultiplier);
-		this.armorVal = (6 * this.difMultiplier);
+		this.armorVal = (4);
 		this.defend = new Evade();
 		this.experienceWorth = (80 * this.difMultiplier);
 	}
