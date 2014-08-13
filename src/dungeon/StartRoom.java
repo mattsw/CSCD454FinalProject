@@ -27,7 +27,6 @@ public class StartRoom extends Room {
 	@Override
 	public void entered(Party goodParty, int curFloor) {
 		System.out.println(this);
-		System.out.println("Enter your choice, or type help.\n");
 		Command command = new Command(this);
 		command.execute();
 	}

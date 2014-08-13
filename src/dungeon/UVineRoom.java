@@ -44,8 +44,8 @@ public class UVineRoom extends Room {
 			gameCore.endGameKilled();
 		}
 		else{
+			System.out.println("You have defeated your enemies!");
 			System.out.print(this);
-			System.out.println("Enter your choice, or type help.\n");
 			Command command = new Command(this);
 			command.execute();
 		}

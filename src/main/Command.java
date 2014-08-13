@@ -29,6 +29,8 @@ public class Command {
 		@SuppressWarnings("resource")
 		Scanner cin = new Scanner(System.in);
 		
+		System.out.println("Enter your choice, or type help.\n");
+		
 		while(true) {
 			commandTest = cin.nextLine();
 			
@@ -112,7 +114,7 @@ public class Command {
 		} else if(command.equalsIgnoreCase("up")) {
 			this.curDungeon.movePlayerUp(this.curDungeon.getCurPlayerFloor() + 1);
 		} else {  //command = print
-			//System.out.println(this.curRoom.toString());
+			//Room will reprint in gamecore automatically
 		}
 	}
 	

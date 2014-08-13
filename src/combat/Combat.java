@@ -57,6 +57,7 @@ public class Combat {
 							return false;
 						}
 						else if(combatChoice == 42){
+							System.out.println("You have destroyed all enemies in a brilliant flash of light, cheater!");
 							goodGuys.addEXP(badGuys.getEXP());
 							return goodGuys.surviving();
 						}
