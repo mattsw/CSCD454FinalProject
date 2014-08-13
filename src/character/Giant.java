@@ -21,7 +21,7 @@ public class Giant extends Bad {
 		this.health = (150 * this.difMultiplier);
 		this.curHealth = this.health;
 		this.attackPwr = (15 * this.difMultiplier);
-		this.speed = (12 * this.difMultiplier);
+		this.speed = (14 * this.difMultiplier);
 		this.armorVal = (8);
 		this.defend = new Block();
 		this.experienceWorth = (300 * this.difMultiplier);
