@@ -86,7 +86,7 @@ public abstract class Character {
 	public void attack(character.Character target){
 		if(this.isAlive()){
 			setAttackBehavior();
-			boolean hasDefended = true;
+			boolean hasDefended = false;
 			double damage = (this.attack.attack(this.attackPwr,this.getName(), target.getName()))- (target.getDefenceRating());
 			if(damage > 0){
 				hasDefended = target.defend();
